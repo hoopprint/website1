@@ -2894,7 +2894,7 @@ input, select, textarea {
 			}
 
 		#header:after {
-			background: none
+			background: red
 /*			background: #1c1c1c; 
 			content: '';
 			height: 5.5rem;
