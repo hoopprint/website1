@@ -899,6 +899,97 @@
 
 	}
 
+	async function requestCoachResponse() {
+
+	coachSend.disabled = true;
+
+	coachSend.textContent = 'Thinking...';
+
+
+	try {
+
+		const response = await fetch(
+			'https://hoopprint-api.4gbvj7hgbr.workers.dev/chat',
+			{
+				method: 'POST',
+
+				headers: {
+					'Content-Type': 'application/json'
+				},
+
+				body: JSON.stringify({
+
+					provider:
+						coachSession.provider,
+
+					messages:
+						coachSession.messages
+
+				})
+			}
+		);
+
+
+		const data = await response.json();
+
+
+		if (!response.ok) {
+
+			throw new Error(
+				data.error ||
+				'CoachGPT request failed.'
+			);
+
+		}
+
+
+		const assistantMessage = {
+
+			role: 'assistant',
+
+			content: {
+				text: data.message,
+				attachments: []
+			},
+
+			metadata: {
+				provider: data.provider,
+				model: data.model
+			}
+
+		};
+
+
+		coachSession.messages.push(
+			assistantMessage
+		);
+
+
+		addMessage(
+			'assistant',
+			data.message
+		);
+
+
+	} catch (error) {
+
+		console.error(error);
+
+
+		addMessage(
+			'assistant',
+			'I had trouble connecting to the Blueprint. Please try again.'
+		);
+
+	}
+
+
+	coachSend.disabled = false;
+
+	coachSend.innerHTML =
+		'Send &rarr;';
+
+}
 
 	function sendCoachMessage() {
 
@@ -935,21 +1026,7 @@
 		coachInput.focus();
 
 
-		/*
-			Temporary Step 2 response.
-
-			In Step 3 this disappears and is replaced
-			by a request to the HoopPrint API.
-		*/
-
-		setTimeout(function() {
-
-			addMessage(
-				'assistant',
-				'Blueprint received. In the next step, this message will be sent to the HoopPrint coaching engine.'
-			);
-
-		}, 450);
+requestCoachResponse();
 
 	}
 
