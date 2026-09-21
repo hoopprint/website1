@@ -302,7 +302,221 @@
 				max-width: 330px;
 			}
 		}
+/* ==========================================================
+   COACH LAB
+   ========================================================== */
 
+#coach-lab {
+	position: relative;
+	min-height: 100vh;
+	padding: 8rem 2rem 6rem;
+	background:
+		linear-gradient(rgba(67, 143, 255, 0.035) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(67, 143, 255, 0.035) 1px, transparent 1px),
+		#050c16;
+	background-size: 40px 40px;
+	color: white;
+}
+
+.coach-lab-inner {
+	width: min(820px, 100%);
+	margin: 0 auto;
+}
+
+.coach-lab-header {
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.coach-lab-header h2 {
+	margin: 0;
+	color: white;
+	font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.coach-lab-header p {
+	margin: 1rem auto 0;
+	color: rgba(255,255,255,0.5);
+}
+
+
+/* QUICK STARTS */
+
+.coach-topics {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.7rem;
+	margin: 2rem 0 3rem;
+}
+
+.coach-topic {
+	border: 1px solid rgba(104,167,255,0.35);
+	background: rgba(31,88,165,0.08);
+	color: rgba(255,255,255,0.75);
+	padding: 0.65rem 1rem;
+	border-radius: 2px;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.1rem;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: 0.2s ease;
+}
+
+.coach-topic:hover {
+	border-color: #68a7ff;
+	background: rgba(54,128,232,0.16);
+	color: white;
+}
+
+
+/* CONVERSATION */
+
+.coach-conversation {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	min-height: 250px;
+	margin-bottom: 2rem;
+}
+
+.coach-message {
+	max-width: 82%;
+}
+
+.coach-message.assistant {
+	align-self: flex-start;
+}
+
+.coach-message.user {
+	align-self: flex-end;
+}
+
+.message-label {
+	margin-bottom: 0.45rem;
+	font-size: 0.62rem;
+	font-weight: 700;
+	letter-spacing: 0.12rem;
+	text-transform: uppercase;
+	color: #72aaf5;
+}
+
+.user .message-label {
+	text-align: right;
+	color: rgba(255,255,255,0.4);
+}
+
+.message-bubble {
+	padding: 1.2rem 1.4rem;
+	border: 1px solid rgba(104,167,255,0.18);
+	background: rgba(13,30,52,0.78);
+	color: rgba(255,255,255,0.85);
+	line-height: 1.65;
+}
+
+.user .message-bubble {
+	background: rgba(51,113,201,0.16);
+	border-color: rgba(104,167,255,0.35);
+}
+
+
+/* COMPOSER */
+
+.coach-composer {
+	border: 1px solid rgba(104,167,255,0.35);
+	background: rgba(7,17,31,0.92);
+	padding: 1rem;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.coach-composer:focus-within {
+	border-color: #68a7ff;
+	box-shadow: 0 0 25px rgba(70,143,245,0.08);
+}
+
+#coach-input {
+	display: block;
+	width: 100%;
+	min-height: 80px;
+	resize: none;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	color: white;
+	font: inherit;
+	line-height: 1.5;
+}
+
+#coach-input::placeholder {
+	color: rgba(255,255,255,0.3);
+}
+
+.composer-actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 0.75rem;
+}
+
+.attachment-button {
+	width: 38px;
+	height: 38px;
+	padding: 0;
+	border: 1px solid rgba(104,167,255,0.25);
+	background: transparent;
+	color: rgba(255,255,255,0.55);
+	cursor: pointer;
+}
+
+.attachment-button:hover {
+	border-color: #68a7ff;
+	color: white;
+}
+
+#coach-send {
+	height: 38px;
+	padding: 0 1.25rem;
+	border: 1px solid #68a7ff;
+	background: rgba(54,128,232,0.16);
+	color: white;
+	font-size: 0.7rem;
+	font-weight: 800;
+	letter-spacing: 0.1rem;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+#coach-send:hover {
+	background: rgba(54,128,232,0.3);
+}
+
+.coach-capabilities {
+	margin-top: 0.8rem;
+	text-align: center;
+	font-size: 0.65rem;
+	letter-spacing: 0.06rem;
+	color: rgba(255,255,255,0.25);
+}
+
+@media screen and (max-width: 736px) {
+
+	#coach-lab {
+		padding: 6rem 1.2rem 4rem;
+	}
+
+	.coach-message {
+		max-width: 92%;
+	}
+
+	.coach-topics {
+		gap: 0.5rem;
+	}
+
+	.coach-topic {
+		font-size: 0.62rem;
+	}
+}
 	</style>
 
 </head>
@@ -417,38 +631,115 @@
 		 Placeholder for Step 2.
 		 ====================================================== -->
 
-	<section id="coach-lab" style="
-		background: #050c16;
-		min-height: 60vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		color: white;
-		padding: 6rem 2rem;
-	">
+	<section id="coach-lab">
 
-		<div>
+	<div class="coach-lab-inner">
 
+		<header class="coach-lab-header">
 			<div class="blueprint-label">
 				CoachGPT
 			</div>
 
-			<h2 style="color: white;">
-				What are we working on today?
-			</h2>
+			<h2>What are we working on today?</h2>
 
-			<p style="
-				max-width: 600px;
-				color: rgba(255,255,255,0.55);
-				margin: 1rem auto 0;
-			">
-				The CoachGPT conversation interface will live here.
+			<p>
+				Tell me about your game, ask a question, or choose an area to begin.
 			</p>
+		</header>
+
+
+		<div class="coach-topics">
+
+			<button class="coach-topic" data-topic="shooting">
+				Shooting
+			</button>
+
+			<button class="coach-topic" data-topic="ball handling">
+				Handling
+			</button>
+
+			<button class="coach-topic" data-topic="finishing">
+				Finishing
+			</button>
+
+			<button class="coach-topic" data-topic="defense">
+				Defense
+			</button>
+
+			<button class="coach-topic" data-topic="athletic development">
+				Athletic
+			</button>
+
+			<button class="coach-topic" data-topic="mindset">
+				Mindset
+			</button>
 
 		</div>
 
-	</section>
+
+		<div
+			id="coach-conversation"
+			class="coach-conversation"
+			aria-live="polite"
+		>
+
+			<div class="coach-message assistant">
+
+				<div class="message-label">
+					CoachGPT
+				</div>
+
+				<div class="message-bubble">
+					Welcome to the Blueprint. Tell me about your game and
+					what you're trying to improve.
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<div class="coach-composer">
+
+			<textarea
+				id="coach-input"
+				placeholder="Ask CoachGPT about your game..."
+				aria-label="Message CoachGPT"
+			></textarea>
+
+
+			<div class="composer-actions">
+
+				<button
+					class="attachment-button"
+					id="attachment-button"
+					type="button"
+					title="Attachments coming soon"
+					aria-label="Add attachment"
+				>
+					+
+				</button>
+
+
+				<button
+					id="coach-send"
+					type="button"
+				>
+					Send &rarr;
+				</button>
+
+			</div>
+
+		</div>
+
+
+		<div class="coach-capabilities">
+			Images &middot; Video &middot; Files coming soon
+		</div>
+
+	</div>
+
+</section>
 
 
 	<!-- Footer -->
@@ -535,6 +826,196 @@
 
 	</script>
 
+<script>
+
+	/* ==========================================================
+	   COACHGPT FRONTEND
+	   No AI provider is connected yet.
+	   ========================================================== */
+
+	const coachInput = document.getElementById('coach-input');
+	const coachSend = document.getElementById('coach-send');
+	const coachConversation =
+		document.getElementById('coach-conversation');
+
+	const topicButtons =
+		document.querySelectorAll('.coach-topic');
+
+
+	/*
+		Provider-neutral conversation state.
+
+		Later this same structure will be sent to
+		the HoopPrint backend regardless of whether
+		OpenAI, Claude, Gemini, or another provider
+		handles the request.
+	*/
+
+	const coachSession = {
+
+		provider: 'auto',
+
+		messages: []
+
+	};
+
+
+	function addMessage(role, text) {
+
+		const message = document.createElement('div');
+
+		message.className =
+			'coach-message ' +
+			(role === 'user' ? 'user' : 'assistant');
+
+
+		const label = document.createElement('div');
+
+		label.className = 'message-label';
+
+		label.textContent =
+			role === 'user'
+				? 'You'
+				: 'CoachGPT';
+
+
+		const bubble = document.createElement('div');
+
+		bubble.className = 'message-bubble';
+
+		bubble.textContent = text;
+
+
+		message.appendChild(label);
+		message.appendChild(bubble);
+
+		coachConversation.appendChild(message);
+
+
+		message.scrollIntoView({
+			behavior: 'smooth',
+			block: 'nearest'
+		});
+
+	}
+
+
+	function sendCoachMessage() {
+
+		const text = coachInput.value.trim();
+
+		if (!text) {
+			return;
+		}
+
+
+		const message = {
+
+			role: 'user',
+
+			content: {
+				text: text,
+				attachments: []
+			},
+
+			metadata: {
+				source: 'coach-web'
+			}
+
+		};
+
+
+		coachSession.messages.push(message);
+
+		addMessage('user', text);
+
+
+		coachInput.value = '';
+
+		coachInput.focus();
+
+
+		/*
+			Temporary Step 2 response.
+
+			In Step 3 this disappears and is replaced
+			by a request to the HoopPrint API.
+		*/
+
+		setTimeout(function() {
+
+			addMessage(
+				'assistant',
+				'Blueprint received. In the next step, this message will be sent to the HoopPrint coaching engine.'
+			);
+
+		}, 450);
+
+	}
+
+
+	coachSend.addEventListener(
+		'click',
+		sendCoachMessage
+	);
+
+
+	coachInput.addEventListener(
+		'keydown',
+		function(event) {
+
+			if (
+				event.key === 'Enter' &&
+				!event.shiftKey
+			) {
+
+				event.preventDefault();
+
+				sendCoachMessage();
+
+			}
+
+		}
+	);
+
+
+	topicButtons.forEach(function(button) {
+
+		button.addEventListener(
+			'click',
+			function() {
+
+				const topic =
+					button.dataset.topic;
+
+				coachInput.value =
+					'I want to work on my ' +
+					topic +
+					'.';
+
+				coachInput.focus();
+
+			}
+		);
+
+	});
+
+
+	document
+		.getElementById('attachment-button')
+		.addEventListener(
+			'click',
+			function() {
+
+				alert(
+					'Image, video, and file analysis is coming in a later Blueprint build.'
+				);
+
+			}
+		);
+
+</script>
+	
 </body>
 ```
 
