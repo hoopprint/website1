@@ -1,0 +1,541 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+
+```
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-23FL2YW539"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-23FL2YW539');
+	</script>
+
+	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<link rel="manifest" href="/site.webmanifest" />
+
+	<title>CoachGPT | HoopPrint</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta
+		name="description"
+		content="CoachGPT by HoopPrint — intelligent basketball coaching powered by coaching knowledge, sports science, and research."
+	/>
+
+	<link rel="stylesheet" href="assets/css/main.css" />
+
+	<style>
+
+		/* ==========================================================
+		   HOOPPRINT BLUEPRINT
+		   Temporary CoachGPT styles.
+		   We'll move these into coach.css later.
+		   ========================================================== */
+
+		body {
+			background: #07111f;
+		}
+
+		/* Blueprint environment */
+
+		#blueprint {
+			position: relative;
+			min-height: 100vh;
+			overflow: hidden;
+			background:
+				linear-gradient(rgba(67, 143, 255, 0.07) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(67, 143, 255, 0.07) 1px, transparent 1px),
+				radial-gradient(circle at 50% 25%, #102c52 0%, #091a30 38%, #050c16 100%);
+			background-size:
+				40px 40px,
+				40px 40px,
+				auto;
+			color: #ffffff;
+		}
+
+		#blueprint::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			pointer-events: none;
+			background:
+				radial-gradient(circle at center, transparent 20%, rgba(2, 7, 14, 0.48) 100%);
+		}
+
+		.blueprint-inner {
+			position: relative;
+			z-index: 2;
+			width: min(1100px, 88%);
+			min-height: 100vh;
+			margin: 0 auto;
+			padding: 11rem 0 7rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+
+		/* Small technical label */
+
+		.blueprint-label {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.65rem;
+			margin-bottom: 2rem;
+			font-size: 0.72rem;
+			font-weight: 700;
+			letter-spacing: 0.22rem;
+			text-transform: uppercase;
+			color: #8cbcff;
+		}
+
+		.blueprint-label::before,
+		.blueprint-label::after {
+			content: "";
+			width: 34px;
+			height: 1px;
+			background: #4c8ee8;
+		}
+
+		/* CoachGPT mark */
+
+		.coach-mark {
+			position: relative;
+			width: 94px;
+			height: 94px;
+			margin-bottom: 2rem;
+			border: 1px solid rgba(112, 173, 255, 0.55);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow:
+				0 0 0 10px rgba(71, 137, 224, 0.04),
+				0 0 50px rgba(47, 125, 235, 0.14);
+		}
+
+		.coach-mark::before,
+		.coach-mark::after {
+			content: "";
+			position: absolute;
+			background: rgba(112, 173, 255, 0.35);
+		}
+
+		.coach-mark::before {
+			width: 130px;
+			height: 1px;
+		}
+
+		.coach-mark::after {
+			width: 1px;
+			height: 130px;
+		}
+
+		.coach-mark span {
+			position: relative;
+			z-index: 2;
+			font-size: 1rem;
+			font-weight: 800;
+			letter-spacing: 0.08rem;
+			color: #ffffff;
+		}
+
+		/* Main typography */
+
+		#blueprint h1 {
+			margin: 0;
+			font-size: clamp(3rem, 8vw, 6.8rem);
+			line-height: 0.95;
+			letter-spacing: -0.18rem;
+			color: #ffffff;
+		}
+
+		.coach-subtitle {
+			margin: 1.4rem 0 0;
+			font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+			font-weight: 700;
+			letter-spacing: 0.22rem;
+			text-transform: uppercase;
+			color: #72aaf5;
+		}
+
+		.coach-intro {
+			max-width: 720px;
+			margin: 2.2rem auto 0;
+			font-size: clamp(1rem, 2vw, 1.25rem);
+			line-height: 1.8;
+			color: rgba(255, 255, 255, 0.78);
+		}
+
+		.coach-intro strong {
+			color: #ffffff;
+		}
+
+		/* Blueprint statement */
+
+		.blueprint-statement {
+			margin: 2.6rem 0 0;
+			font-size: 1rem;
+			font-weight: 700;
+			letter-spacing: 0.08rem;
+			color: #ffffff;
+		}
+
+		/* Enter button */
+
+		.enter-blueprint {
+			margin-top: 3rem;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 250px;
+			height: 58px;
+			padding: 0 2rem;
+			border: 1px solid #68a7ff;
+			border-radius: 2px;
+			background: rgba(35, 103, 199, 0.12);
+			color: #ffffff !important;
+			font-size: 0.78rem;
+			font-weight: 800;
+			letter-spacing: 0.18rem;
+			text-decoration: none;
+			text-transform: uppercase;
+			transition:
+				background 0.25s ease,
+				box-shadow 0.25s ease,
+				transform 0.25s ease;
+		}
+
+		.enter-blueprint:hover {
+			background: rgba(54, 128, 232, 0.28);
+			box-shadow: 0 0 35px rgba(70, 143, 245, 0.2);
+			transform: translateY(-2px);
+		}
+
+		.enter-arrow {
+			margin-left: 0.8rem;
+			font-size: 1rem;
+		}
+
+		/* Status line */
+
+		.blueprint-status {
+			margin-top: 2rem;
+			display: flex;
+			align-items: center;
+			gap: 0.55rem;
+			font-size: 0.67rem;
+			letter-spacing: 0.12rem;
+			text-transform: uppercase;
+			color: rgba(255, 255, 255, 0.45);
+		}
+
+		.status-dot {
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			background: #65a7ff;
+			box-shadow: 0 0 10px #65a7ff;
+		}
+
+		/* Small coordinates/details */
+
+		.blueprint-coordinate {
+			position: absolute;
+			font-family: monospace;
+			font-size: 0.65rem;
+			letter-spacing: 0.08rem;
+			color: rgba(122, 177, 255, 0.35);
+		}
+
+		.coordinate-left {
+			left: 3%;
+			bottom: 5%;
+		}
+
+		.coordinate-right {
+			right: 3%;
+			top: 18%;
+		}
+
+		/* AI notice */
+
+		.ai-notice {
+			max-width: 650px;
+			margin-top: 3.5rem;
+			font-size: 0.72rem;
+			line-height: 1.6;
+			color: rgba(255, 255, 255, 0.35);
+		}
+
+		/* Mobile */
+
+		@media screen and (max-width: 736px) {
+
+			.blueprint-inner {
+				width: 86%;
+				padding: 9rem 0 5rem;
+			}
+
+			#blueprint h1 {
+				letter-spacing: -0.09rem;
+			}
+
+			.coach-intro {
+				line-height: 1.65;
+			}
+
+			.blueprint-coordinate {
+				display: none;
+			}
+
+			.enter-blueprint {
+				width: 100%;
+				max-width: 330px;
+			}
+		}
+
+	</style>
+
+</head>
+
+<body class="is-preload">
+
+	<!-- Header -->
+	<header id="header" class="alt">
+
+		<nav class="nav-left">
+			<ul class="nav">
+				<li><a href="https://hoopprint.com/">Home</a></li>
+			</ul>
+		</nav>
+
+		<div id="logo">
+			<a href="https://hoopprint.com/">
+				Hoop<br />
+				<strong>Print</strong>
+			</a>
+		</div>
+
+		<nav class="nav-right">
+			<ul class="nav">
+				<li>
+					<a href="about.html">Learn</a>
+
+					<ul class="dropdown">
+						<li><a href="about.html">About HoopPrint</a></li>
+						<li><a href="#">Basketball Workouts (coming soon)</a></li>
+						<li><a href="coach.html">CoachGPT</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+
+	</header>
+
+
+	<!-- ======================================================
+		 HOOPPRINT BLUEPRINT
+		 ====================================================== -->
+
+	<main id="blueprint">
+
+		<div class="blueprint-coordinate coordinate-left">
+			HP / BLUEPRINT / 001
+		</div>
+
+		<div class="blueprint-coordinate coordinate-right">
+			COACH INTELLIGENCE SYSTEM
+		</div>
+
+
+		<div class="blueprint-inner">
+
+			<div class="blueprint-label">
+				HoopPrint Blueprint
+			</div>
+
+
+			<div class="coach-mark">
+				<span>HP</span>
+			</div>
+
+
+			<h1>CoachGPT</h1>
+
+			<div class="coach-subtitle">
+				Your Intelligent Virtual Coach
+			</div>
+
+
+			<p class="coach-intro">
+				CoachGPT brings together <strong>coaching knowledge,
+				sports science, sports research, and real-world basketball
+				principles</strong> to turn questions about your game into
+				actionable recommendations and motivational guidance.
+			</p>
+
+
+			<p class="blueprint-statement">
+				Your game. Your questions. Your Blueprint.
+			</p>
+
+
+			<a href="#coach-lab" class="enter-blueprint" id="enter-blueprint">
+				Enter the Blueprint
+				<span class="enter-arrow">&darr;</span>
+			</a>
+
+
+			<div class="blueprint-status">
+				<span class="status-dot"></span>
+				Private Beta
+			</div>
+
+
+			<p class="ai-notice">
+				CoachGPT is an AI coaching system and may make mistakes.
+				Its guidance is educational and does not replace qualified
+				medical, athletic, or professional advice.
+			</p>
+
+		</div>
+
+	</main>
+
+
+	<!-- ======================================================
+		 COACH LAB
+		 Placeholder for Step 2.
+		 ====================================================== -->
+
+	<section id="coach-lab" style="
+		background: #050c16;
+		min-height: 60vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		color: white;
+		padding: 6rem 2rem;
+	">
+
+		<div>
+
+			<div class="blueprint-label">
+				CoachGPT
+			</div>
+
+			<h2 style="color: white;">
+				What are we working on today?
+			</h2>
+
+			<p style="
+				max-width: 600px;
+				color: rgba(255,255,255,0.55);
+				margin: 1rem auto 0;
+			">
+				The CoachGPT conversation interface will live here.
+			</p>
+
+		</div>
+
+	</section>
+
+
+	<!-- Footer -->
+	<section id="footer">
+
+		<div class="inner">
+
+			<header>
+				<h3>Get in Touch with me!</h3>
+				<p>
+					Contact earlyadopter@hoopprint.com for an introduction!
+				</p>
+			</header>
+
+
+			<ul class="icons">
+
+				<li>
+					<a
+						href="https://www.instagram.com/hoopprint_official/"
+						target="_blank"
+						class="icon brands fa-instagram"
+					>
+						<span class="label">Instagram</span>
+					</a>
+				</li>
+
+				<li>
+					<a
+						href="https://www.youtube.com/@hoopprint"
+						target="_blank"
+						class="icon brands fa-youtube"
+					>
+						<span class="label">YouTube</span>
+					</a>
+				</li>
+
+				<li>
+					<a
+						href="mailto:earlyadopter@hoopprint.com"
+						class="icon solid fa-envelope"
+					>
+						<span class="label">Email</span>
+					</a>
+				</li>
+
+			</ul>
+
+
+			<div class="copyright">
+				&copy; HoopPrint All rights reserved.
+			</div>
+
+		</div>
+
+	</section>
+
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+
+	<!-- Smooth Blueprint entry -->
+	<script>
+
+		document
+			.getElementById('enter-blueprint')
+			.addEventListener('click', function(event) {
+
+				event.preventDefault();
+
+				document
+					.getElementById('coach-lab')
+					.scrollIntoView({
+						behavior: 'smooth'
+					});
+
+			});
+
+	</script>
+
+</body>
+```
+
+</html>
