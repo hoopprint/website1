@@ -517,6 +517,291 @@
 		font-size: 0.62rem;
 	}
 }
+
+/* =========================================
+   COACHGPT BLUEPRINT
+========================================= */
+
+.blueprint-response {
+	margin: 28px 0;
+	border: 1px solid rgba(255,255,255,.14);
+	background: #080808;
+	color: #fff;
+	overflow: hidden;
+}
+
+.blueprint-response-header {
+	padding: 34px;
+	border-bottom: 1px solid rgba(255,255,255,.12);
+	background:
+		linear-gradient(
+			135deg,
+			rgba(255,255,255,.06),
+			rgba(255,255,255,0)
+		);
+}
+
+.blueprint-kicker,
+.blueprint-section-label {
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+	opacity: .55;
+}
+
+.blueprint-response-header h2 {
+	margin: 10px 0 18px;
+	max-width: 720px;
+	font-size: clamp(28px, 5vw, 48px);
+	line-height: 1;
+	letter-spacing: -.035em;
+}
+
+.blueprint-status {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 10px;
+	font-weight: 800;
+	letter-spacing: .14em;
+	opacity: .7;
+}
+
+.blueprint-status span {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: currentColor;
+}
+
+.blueprint-section {
+	padding: 30px 34px;
+	border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.blueprint-section h3 {
+	margin: 8px 0 20px;
+	font-size: 22px;
+}
+
+.blueprint-assessment {
+	max-width: 760px;
+	margin: 12px 0 0;
+	line-height: 1.7;
+	opacity: .82;
+}
+
+
+/* FOCUS */
+
+.blueprint-focus-section {
+	background: rgba(255,255,255,.035);
+}
+
+.blueprint-focus-grid {
+	display: grid;
+	gap: 10px;
+}
+
+.blueprint-focus-card {
+	display: grid;
+	grid-template-columns: 58px 1fr;
+	gap: 18px;
+	align-items: start;
+	padding: 20px;
+	border: 1px solid rgba(255,255,255,.13);
+	background: rgba(255,255,255,.025);
+}
+
+.blueprint-focus-number {
+	font-size: 28px;
+	font-weight: 800;
+	line-height: 1;
+	opacity: .28;
+}
+
+.blueprint-focus-card h4 {
+	margin: 0 0 7px;
+	font-size: 17px;
+}
+
+.blueprint-focus-card p {
+	margin: 0;
+	line-height: 1.55;
+	opacity: .7;
+}
+
+
+/* TRAINING */
+
+.blueprint-training-grid {
+	display: grid;
+	gap: 14px;
+	margin-top: 14px;
+}
+
+.blueprint-training-card {
+	padding: 22px;
+	border: 1px solid rgba(255,255,255,.12);
+	background: rgba(255,255,255,.025);
+}
+
+.blueprint-training-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+.blueprint-training-number {
+	font-size: 12px;
+	font-weight: 800;
+	opacity: .4;
+}
+
+.blueprint-basis {
+	font-size: 9px;
+	font-weight: 800;
+	letter-spacing: .12em;
+	opacity: .45;
+}
+
+.blueprint-training-card h4 {
+	margin: 0 0 8px;
+	font-size: 19px;
+}
+
+.blueprint-skill-tag {
+	display: inline-block;
+	margin-bottom: 18px;
+	font-size: 9px;
+	font-weight: 800;
+	letter-spacing: .1em;
+	opacity: .55;
+}
+
+.blueprint-detail {
+	margin-top: 14px;
+}
+
+.blueprint-detail strong {
+	display: block;
+	margin-bottom: 4px;
+	font-size: 9px;
+	letter-spacing: .14em;
+	opacity: .45;
+}
+
+.blueprint-detail p {
+	margin: 0;
+	line-height: 1.55;
+	opacity: .78;
+}
+
+
+/* LISTS */
+
+.blueprint-list {
+	margin: 14px 0 0;
+	padding-left: 20px;
+}
+
+.blueprint-list li {
+	margin: 0 0 12px;
+	padding-left: 5px;
+	line-height: 1.55;
+	opacity: .8;
+}
+
+
+/* MASTERY */
+
+.blueprint-mastery-section {
+	background: rgba(255,255,255,.025);
+}
+
+.blueprint-mastery-note {
+	display: inline-block;
+	margin-top: 12px;
+	padding: 8px 11px;
+	border: 1px solid rgba(255,255,255,.12);
+	font-size: 9px;
+	font-weight: 800;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	opacity: .45;
+}
+
+
+/* SOURCES */
+
+.blueprint-sources {
+	display: grid;
+	gap: 10px;
+	margin-top: 14px;
+}
+
+.blueprint-source {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	font-size: 12px;
+	line-height: 1.45;
+}
+
+.blueprint-source span {
+	opacity: .5;
+}
+
+
+/* COACH CUE */
+
+.blueprint-coach-cue {
+	padding: 30px 34px;
+}
+
+.blueprint-coach-cue span {
+	display: block;
+	margin-bottom: 8px;
+	font-size: 9px;
+	font-weight: 800;
+	letter-spacing: .16em;
+	opacity: .45;
+}
+
+.blueprint-coach-cue strong {
+	display: block;
+	max-width: 720px;
+	font-size: clamp(20px, 4vw, 30px);
+	line-height: 1.2;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+
+	.blueprint-response-header,
+	.blueprint-section,
+	.blueprint-coach-cue {
+		padding: 24px 20px;
+	}
+
+	.blueprint-focus-card {
+		grid-template-columns: 42px 1fr;
+		padding: 17px;
+	}
+
+	.blueprint-focus-number {
+		font-size: 22px;
+	}
+
+	.blueprint-training-card {
+		padding: 18px;
+	}
+
+}
 	</style>
 
 </head>
@@ -902,9 +1187,7 @@
 	async function requestCoachResponse() {
 
 	coachSend.disabled = true;
-
 	coachSend.textContent = 'Thinking...';
-
 
 	try {
 
@@ -918,76 +1201,500 @@
 				},
 
 				body: JSON.stringify({
-
-					provider:
-						coachSession.provider,
-
-					messages:
-						coachSession.messages
-
+					provider: coachSession.provider,
+					messages: coachSession.messages
 				})
 			}
 		);
 
-
 		const data = await response.json();
 
-
 		if (!response.ok) {
-
 			throw new Error(
 				data.error ||
 				'CoachGPT request failed.'
+			);
+		}
+
+		const coachResponse = data.coach_response;
+
+		if (!coachResponse) {
+			throw new Error(
+				'CoachGPT returned an empty response.'
+			);
+		}
+
+
+		/* ---------------------------------
+		   DIAGNOSTIC RESPONSE
+		--------------------------------- */
+
+		if (coachResponse.type === 'diagnostic') {
+
+			const questions =
+				Array.isArray(coachResponse.questions)
+					? coachResponse.questions
+					: [];
+
+			const diagnosticText =
+				questions.join('\n\n');
+
+			const assistantMessage = {
+				role: 'assistant',
+
+				content: {
+					text: diagnosticText,
+					attachments: []
+				},
+
+				metadata: {
+					provider: data.provider,
+					model: data.model,
+					type: 'diagnostic'
+				}
+			};
+
+			coachSession.messages.push(
+				assistantMessage
+			);
+
+			addMessage(
+				'assistant',
+				diagnosticText
 			);
 
 		}
 
 
-		const assistantMessage = {
+		/* ---------------------------------
+		   BLUEPRINT RESPONSE
+		--------------------------------- */
 
-			role: 'assistant',
+		else if (
+			coachResponse.type === 'blueprint' &&
+			coachResponse.blueprint
+		) {
 
-			content: {
-				text: data.message,
-				attachments: []
-			},
+			const blueprint =
+				coachResponse.blueprint;
 
-			metadata: {
-				provider: data.provider,
-				model: data.model
-			}
+			/*
+				Keep a compact record in the
+				conversation history so CoachGPT
+				knows what Blueprint it created.
+			*/
 
-		};
+			const assistantMessage = {
+				role: 'assistant',
 
+				content: {
+					text:
+						'Blueprint created: ' +
+						blueprint.goal,
+					attachments: []
+				},
 
-		coachSession.messages.push(
-			assistantMessage
-		);
+				metadata: {
+					provider: data.provider,
+					model: data.model,
+					type: 'blueprint'
+				}
+			};
 
+			coachSession.messages.push(
+				assistantMessage
+			);
 
-		addMessage(
-			'assistant',
-			data.message
-		);
+			renderBlueprint(
+				blueprint
+			);
 
+		}
+
+		else {
+
+			throw new Error(
+				'Unknown CoachGPT response type.'
+			);
+
+		}
 
 	} catch (error) {
 
 		console.error(error);
 
-
 		addMessage(
 			'assistant',
-			'I had trouble connecting to the Blueprint. Please try again.'
+			'I had trouble building your Blueprint. Please try again.'
 		);
 
 	}
-
 
 	coachSend.disabled = false;
 
 	coachSend.innerHTML =
 		'Send &rarr;';
+
+}
+
+	function escapeBlueprintHTML(value) {
+
+	return String(value ?? '')
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#039;');
+
+}
+
+
+function renderBlueprint(blueprint) {
+
+	const conversation =
+		document.querySelector(
+			'.coach-conversation'
+		);
+
+	if (!conversation) return;
+
+
+	const focus =
+		Array.isArray(blueprint.focus)
+			? [...blueprint.focus]
+				.sort(
+					(a, b) =>
+						(a.priority || 99) -
+						(b.priority || 99)
+				)
+			: [];
+
+
+	const training =
+		Array.isArray(blueprint.training)
+			? blueprint.training
+			: [];
+
+
+	const gameTranslation =
+		Array.isArray(
+			blueprint.game_translation
+		)
+			? blueprint.game_translation
+			: [];
+
+
+	const metrics =
+		Array.isArray(
+			blueprint.progress?.metrics
+		)
+			? blueprint.progress.metrics
+			: [];
+
+
+	const mastery =
+		Array.isArray(
+			blueprint.progress?.mastery_criteria
+		)
+			? blueprint.progress.mastery_criteria
+			: [];
+
+
+	const sources =
+		Array.isArray(blueprint.sources)
+			? blueprint.sources
+			: [];
+
+
+	const focusHTML =
+		focus.map((item, index) => `
+			<div class="blueprint-focus-card">
+
+				<div class="blueprint-focus-number">
+					${String(index + 1).padStart(2, '0')}
+				</div>
+
+				<div>
+					<h4>
+						${escapeBlueprintHTML(item.skill)}
+					</h4>
+
+					<p>
+						${escapeBlueprintHTML(item.why)}
+					</p>
+				</div>
+
+			</div>
+		`).join('');
+
+
+	const trainingHTML =
+		training.map((item, index) => `
+
+			<div class="blueprint-training-card">
+
+				<div class="blueprint-training-top">
+
+					<span class="blueprint-training-number">
+						${String(index + 1).padStart(2, '0')}
+					</span>
+
+					<span class="blueprint-basis">
+						${
+							item.basis === 'evidence'
+								? 'KNOWLEDGE BASE'
+								: 'COACHGPT'
+						}
+					</span>
+
+				</div>
+
+				<h4>
+					${escapeBlueprintHTML(item.name)}
+				</h4>
+
+				<div class="blueprint-skill-tag">
+					FOCUS:
+					${escapeBlueprintHTML(item.focus_skill)}
+				</div>
+
+				<div class="blueprint-detail">
+
+					<strong>WHAT</strong>
+
+					<p>
+						${escapeBlueprintHTML(item.what)}
+					</p>
+
+				</div>
+
+				<div class="blueprint-detail">
+
+					<strong>CUE</strong>
+
+					<p>
+						${escapeBlueprintHTML(item.cue)}
+					</p>
+
+				</div>
+
+				<div class="blueprint-detail">
+
+					<strong>WHY</strong>
+
+					<p>
+						${escapeBlueprintHTML(item.why)}
+					</p>
+
+				</div>
+
+			</div>
+
+		`).join('');
+
+
+	const gameHTML =
+		gameTranslation.map(item => `
+			<li>
+				${escapeBlueprintHTML(item)}
+			</li>
+		`).join('');
+
+
+	const metricsHTML =
+		metrics.map(item => `
+			<li>
+				${escapeBlueprintHTML(item)}
+			</li>
+		`).join('');
+
+
+	const masteryHTML =
+		mastery.map(item => `
+			<li>
+				${escapeBlueprintHTML(item)}
+			</li>
+		`).join('');
+
+
+	const sourcesHTML =
+		sources.map(source => `
+
+			<div class="blueprint-source">
+
+				<strong>
+					${escapeBlueprintHTML(source.source)}
+				</strong>
+
+				<span>
+					${escapeBlueprintHTML(source.section)}
+					${
+						source.page
+							? ' · p. ' +
+							  escapeBlueprintHTML(source.page)
+							: ''
+					}
+				</span>
+
+			</div>
+
+		`).join('');
+
+
+	const wrapper =
+		document.createElement('div');
+
+	wrapper.className =
+		'blueprint-response';
+
+
+	wrapper.innerHTML = `
+
+		<div class="blueprint-response-header">
+
+			<div class="blueprint-kicker">
+				YOUR BLUEPRINT
+			</div>
+
+			<h2>
+				${escapeBlueprintHTML(blueprint.goal)}
+			</h2>
+
+			<div class="blueprint-status">
+				<span></span>
+				ACTIVE GOAL
+			</div>
+
+		</div>
+
+
+		<section class="blueprint-section">
+
+			<div class="blueprint-section-label">
+				ASSESSMENT
+			</div>
+
+			<p class="blueprint-assessment">
+				${escapeBlueprintHTML(blueprint.assessment)}
+			</p>
+
+		</section>
+
+
+		<section class="blueprint-section blueprint-focus-section">
+
+			<div class="blueprint-section-label">
+				FOCUS
+			</div>
+
+			<h3>
+				What you're mastering
+			</h3>
+
+			<div class="blueprint-focus-grid">
+				${focusHTML}
+			</div>
+
+		</section>
+
+
+		<section class="blueprint-section">
+
+			<div class="blueprint-section-label">
+				TRAIN THE FOCUS
+			</div>
+
+			<div class="blueprint-training-grid">
+				${trainingHTML}
+			</div>
+
+		</section>
+
+
+		<section class="blueprint-section">
+
+			<div class="blueprint-section-label">
+				GAME TRANSLATION
+			</div>
+
+			<ul class="blueprint-list">
+				${gameHTML}
+			</ul>
+
+		</section>
+
+
+		<section class="blueprint-section">
+
+			<div class="blueprint-section-label">
+				PROVE PROGRESS
+			</div>
+
+			<ul class="blueprint-list">
+				${metricsHTML}
+			</ul>
+
+		</section>
+
+
+		<section class="blueprint-section blueprint-mastery-section">
+
+			<div class="blueprint-section-label">
+				MASTERY
+			</div>
+
+			<h3>
+				What mastery looks like
+			</h3>
+
+			<ul class="blueprint-list">
+				${masteryHTML}
+			</ul>
+
+			<div class="blueprint-mastery-note">
+				Mastery tracking coming to HoopPrint.
+			</div>
+
+		</section>
+
+
+		<section class="blueprint-section">
+
+			<div class="blueprint-section-label">
+				SOURCES
+			</div>
+
+			<div class="blueprint-sources">
+				${sourcesHTML}
+			</div>
+
+		</section>
+
+
+		<div class="blueprint-coach-cue">
+
+			<span>
+				COACH'S CUE
+			</span>
+
+			<strong>
+				“${escapeBlueprintHTML(blueprint.coach_cue)}”
+			</strong>
+
+		</div>
+
+	`;
+
+
+	conversation.appendChild(
+		wrapper
+	);
+
+
+	wrapper.scrollIntoView({
+		behavior: 'smooth',
+		block: 'start'
+	});
 
 }
 
