@@ -522,6 +522,13 @@
    COACHGPT BLUEPRINT
 ========================================= */
 
+.blueprint-focus-intro {
+	margin: -10px 0 20px;
+	font-size: 13px;
+	line-height: 1.5;
+	opacity: .55;
+}
+		
 .blueprint-response {
 	margin: 28px 0;
 	border: 1px solid rgba(255,255,255,.14);
@@ -1588,9 +1595,13 @@ function renderBlueprint(blueprint) {
 			</div>
 
 			<h3>
-				What you're mastering
+				Your Focus
 			</h3>
-
+			
+			<p class="blueprint-focus-intro">
+				Master these skills to complete your Blueprint.
+			</p>
+			
 			<div class="blueprint-focus-grid">
 				${focusHTML}
 			</div>
