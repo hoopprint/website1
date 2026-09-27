@@ -1433,7 +1433,7 @@ betaForm.addEventListener(
 
 			const response =
 				await fetch(
-					'https://hoopprint-api.4gbvj7hgbr.workers.dev/chat',
+					'https://hoopprint-api.4gbvj7hgbr.workers.dev/beta/verify',
 					{
 						method: 'POST',
 
@@ -1461,15 +1461,17 @@ betaForm.addEventListener(
 				accepted the beta credential.
 			*/
 
-			if (response.status === 401) {
-
+			if (!response.ok) {
+			
 				betaAccessCode = '';
-
+			
 				betaError.textContent =
-					'Access code not recognized.';
-
+					response.status === 401
+						? 'Access code not recognized.'
+						: 'Unable to verify access. Please try again.';
+			
 				return;
-
+			
 			}
 
 
