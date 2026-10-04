@@ -285,11 +285,11 @@ function loadStep() {
 
     audio.pause();
     audio.currentTime = 0;
-if (step.audio) {
-    audio.src = step.audio;
-} else {
-    audio.removeAttribute("src");
-}
+    if (step.audio) {
+        audio.src = step.audio;
+    } else {
+        audio.removeAttribute("src");
+    }
     stepLabel.textContent =
         `STEP ${currentStep + 1} OF ${steps.length}`;
 
@@ -307,7 +307,6 @@ if (step.audio) {
 }
 
 
-async function playAudio() {
 let sequenceRunning = false;
 let sequenceCancelled = false;
 
