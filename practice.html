@@ -235,7 +235,17 @@ const steps = [
     },
     {
         title: "Coach Cues",
-        audio: "audio/brock_step3.mp3"
+        sequence: [
+            { audio: "audio/cue_hard_dribble.mp3" },
+            { wait: 12000 },
+            { audio: "audio/cue_balance.mp3" },
+            { wait: 15000 },
+            { audio: "audio/cue_eyes_up.mp3" },
+            { wait: 15000 },
+            { audio: "audio/cue_follow_through.mp3" },
+            { wait: 20000 },
+            { audio: "audio/cue_good_again.mp3" }
+        ]
     }
 ];
 
@@ -275,8 +285,11 @@ function loadStep() {
 
     audio.pause();
     audio.currentTime = 0;
+if (step.audio) {
     audio.src = step.audio;
-
+} else {
+    audio.removeAttribute("src");
+}
     stepLabel.textContent =
         `STEP ${currentStep + 1} OF ${steps.length}`;
 
@@ -295,23 +308,109 @@ function loadStep() {
 
 
 async function playAudio() {
+let sequenceRunning = false;
+let sequenceCancelled = false;
+
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function playClip(src) {
+
+    return new Promise((resolve, reject) => {
+
+        audio.src = src;
+        audio.currentTime = 0;
+
+        audio.onended = () => resolve();
+
+        audio.onerror = () => reject(
+            new Error("Audio failed: " + src)
+        );
+
+        audio.play().catch(reject);
+    });
+}
+
+
+async function playSequence(sequence) {
+
+    sequenceRunning = true;
+    sequenceCancelled = false;
+
+    status.textContent = "COACHING";
+    playButton.textContent = "Ⅱ";
+
+    try {
+
+        for (const item of sequence) {
+
+            if (sequenceCancelled) break;
+
+            if (item.audio) {
+
+                status.textContent = "COACHING";
+
+                await playClip(item.audio);
+
+            }
+
+            if (item.wait) {
+
+                status.textContent = "YOUR TURN";
+
+                await wait(item.wait);
+            }
+        }
+
+        if (!sequenceCancelled) {
+            status.textContent = "YOUR TURN";
+            playButton.textContent = "▶";
+        }
+
+    } catch (error) {
+
+        console.error(error);
+        status.textContent = "AUDIO ERROR";
+
+    }
+
+    sequenceRunning = false;
+}
+
+
+async function playAudio() {
+
+    const step = steps[currentStep];
+
+    if (step.sequence) {
+
+        if (sequenceRunning) {
+
+            sequenceCancelled = true;
+            audio.pause();
+
+            playButton.textContent = "▶";
+            status.textContent = "PAUSED";
+
+            return;
+        }
+
+        await playSequence(step.sequence);
+        return;
+    }
 
     try {
 
         if (audio.paused) {
-
             await audio.play();
-
         } else {
-
             audio.pause();
-
         }
 
     } catch (error) {
 
         console.error("Audio playback failed:", error);
-
         status.textContent = "AUDIO ERROR";
     }
 }
