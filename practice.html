@@ -49,8 +49,8 @@ body {
 }
 
 h1 {
-    margin: 8px 0 8px;
-    font-size: clamp(34px, 9vw, 52px);
+    margin: 8px 0;
+    font-size: clamp(38px, 10vw, 56px);
     line-height: .95;
     letter-spacing: -2px;
 }
@@ -58,100 +58,101 @@ h1 {
 .description {
     color: #aaa;
     line-height: 1.5;
-    max-width: 400px;
+    max-width: 420px;
 }
 
-.progress {
-    display: flex;
-    gap: 7px;
-    margin: 34px 0;
+.challenge {
+    margin-top: 30px;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 18px 0;
 }
 
-.progress span {
-    height: 4px;
-    flex: 1;
-    background: #292929;
-}
-
-.progress span.active {
-    background: white;
-}
-
-.step-label {
-    font-size: 11px;
-    letter-spacing: 2px;
+.challenge-label {
+    font-size: 10px;
     font-weight: 800;
+    letter-spacing: 2px;
     opacity: .45;
 }
 
-.step-title {
-    font-size: 25px;
+.challenge-title {
+    margin-top: 6px;
+    font-size: 20px;
     font-weight: 800;
-    margin-top: 8px;
 }
 
 .player {
     flex: 1;
+    min-height: 280px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 260px;
 }
 
 .play-button {
-    width: 118px;
-    height: 118px;
+    width: 130px;
+    height: 130px;
+    border: 0;
     border-radius: 50%;
-    border: 2px solid white;
-    background: white;
-    color: black;
-    font-size: 32px;
+    background: #fff;
+    color: #000;
+    font-size: 38px;
     cursor: pointer;
 }
 
 .play-button:active {
-    transform: scale(.96);
+    transform: scale(.97);
+}
+
+.play-button:disabled {
+    cursor: default;
 }
 
 .status {
-    text-align: center;
+    margin-top: 25px;
     font-size: 12px;
-    letter-spacing: 2px;
-    opacity: .45;
-    margin-top: -55px;
-}
-
-.controls {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 10px;
-    margin-top: 28px;
-}
-
-.control-button {
-    border: 1px solid #444;
-    background: transparent;
-    color: white;
-    padding: 18px 12px;
-    font-size: 13px;
     font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.substatus {
+    margin-top: 10px;
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.progress-wrap {
+    width: 100%;
+    margin-top: 28px;
+    display: none;
+}
+
+.progress-track {
+    width: 100%;
+    height: 4px;
+    background: #242424;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #fff;
+    transition: width 1s linear;
+}
+
+.timer {
+    margin-top: 12px;
+    font-size: 12px;
     letter-spacing: 1px;
-    cursor: pointer;
-}
-
-.next-button {
-    background: white;
-    color: black;
-    border-color: white;
-}
-
-.control-button:disabled {
-    opacity: .25;
+    opacity: .45;
 }
 
 .footer {
     text-align: center;
-    margin-top: 28px;
+    margin-top: 25px;
     font-size: 10px;
     letter-spacing: 2px;
     opacity: .3;
@@ -165,52 +166,69 @@ h1 {
 
     <div class="brand">HOOPPRINT</div>
 
-    <div class="blueprint-label">THE BLUEPRINT</div>
-    <div class="category">Shooting</div>
-
-    <h1>One-Dribble<br>Pull-Up</h1>
-
-    <div class="description">
-        Build a repeatable pull-up with balance, strong legs
-        and a consistent follow-through.
+    <div class="blueprint-label">
+        THE BLUEPRINT
     </div>
 
-    <div class="progress" id="progress"></div>
+    <div class="category">
+        Shooting
+    </div>
 
-    <div>
-        <div class="step-label" id="step-label"></div>
-        <div class="step-title" id="step-title"></div>
+    <h1>
+        One-Dribble<br>
+        Pull-Up
+    </h1>
+
+    <div class="description">
+        Build a repeatable pull-up with balance,
+        strong legs and a consistent follow-through.
+    </div>
+
+    <div class="challenge">
+
+        <div class="challenge-label">
+            TODAY'S CHALLENGE
+        </div>
+
+        <div class="challenge-title">
+            How many can you make in 60 seconds?
+        </div>
+
     </div>
 
     <div class="player">
+
         <button
             class="play-button"
-            id="play-button"
-            aria-label="Play practice"
+            id="start-button"
+            aria-label="Start workout"
         >
             ▶
         </button>
-    </div>
 
-    <div class="status" id="status">
-        READY
-    </div>
+        <div class="status" id="status">
+            START WORKOUT
+        </div>
 
-    <div class="controls">
+        <div class="substatus" id="substatus">
+            Put your earbuds in.<br>
+            Your coach takes it from here.
+        </div>
 
-        <button
-            class="control-button"
-            id="again-button"
-        >
-            ↶ AGAIN
-        </button>
+        <div class="progress-wrap" id="progress-wrap">
 
-        <button
-            class="control-button next-button"
-            id="next-button"
-        >
-            NEXT →
-        </button>
+            <div class="progress-track">
+                <div
+                    class="progress-bar"
+                    id="progress-bar"
+                ></div>
+            </div>
+
+            <div class="timer" id="timer">
+                60 SEC
+            </div>
+
+        </div>
 
     </div>
 
@@ -224,97 +242,39 @@ h1 {
 
 <script>
 
-const steps = [
-    {
-        title: "Welcome",
-        audio: "audio/brock_step1.mp3"
-    },
-    {
-        title: "The Drill",
-        audio: "audio/brock_step2.mp3"
-    },
-    {
-        title: "Coach Cues",
-        sequence: [
-            { audio: "audio/cue_hard_dribble.mp3" },
-            { wait: 12000 },
-            { audio: "audio/cue_balance.mp3" },
-            { wait: 15000 },
-            { audio: "audio/cue_eyes_up.mp3" },
-            { wait: 15000 },
-            { audio: "audio/cue_follow_through.mp3" },
-            { wait: 20000 },
-            { audio: "audio/cue_good_again.mp3" }
-        ]
-    }
-];
+const audio =
+    document.getElementById("coach-audio");
 
-let currentStep = 0;
+const startButton =
+    document.getElementById("start-button");
 
-const audio = document.getElementById("coach-audio");
-const playButton = document.getElementById("play-button");
-const againButton = document.getElementById("again-button");
-const nextButton = document.getElementById("next-button");
+const status =
+    document.getElementById("status");
 
-const stepLabel = document.getElementById("step-label");
-const stepTitle = document.getElementById("step-title");
-const status = document.getElementById("status");
-const progress = document.getElementById("progress");
+const substatus =
+    document.getElementById("substatus");
+
+const progressWrap =
+    document.getElementById("progress-wrap");
+
+const progressBar =
+    document.getElementById("progress-bar");
+
+const timer =
+    document.getElementById("timer");
 
 
-function buildProgress() {
-
-    progress.innerHTML = "";
-
-    steps.forEach((step, index) => {
-
-        const bar = document.createElement("span");
-
-        if (index <= currentStep) {
-            bar.classList.add("active");
-        }
-
-        progress.appendChild(bar);
-    });
-}
+let workoutStarted = false;
+let challengeStarted = false;
 
 
-function loadStep() {
+/*
+----------------------------------------
+AUDIO
+----------------------------------------
+*/
 
-    const step = steps[currentStep];
-
-    audio.pause();
-    audio.currentTime = 0;
-    if (step.audio) {
-        audio.src = step.audio;
-    } else {
-        audio.removeAttribute("src");
-    }
-    stepLabel.textContent =
-        `STEP ${currentStep + 1} OF ${steps.length}`;
-
-    stepTitle.textContent = step.title;
-
-    playButton.textContent = "▶";
-    status.textContent = "READY";
-
-    nextButton.textContent =
-        currentStep === steps.length - 1
-            ? "FINISH ✓"
-            : "NEXT →";
-
-    buildProgress();
-}
-
-
-let sequenceRunning = false;
-let sequenceCancelled = false;
-
-function wait(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-async function playClip(src) {
+function playClip(src) {
 
     return new Promise((resolve, reject) => {
 
@@ -323,167 +283,275 @@ async function playClip(src) {
 
         audio.onended = () => resolve();
 
-        audio.onerror = () => reject(
-            new Error("Audio failed: " + src)
-        );
+        audio.onerror = () => {
+            reject(
+                new Error(
+                    "Audio failed: " + src
+                )
+            );
+        };
 
         audio.play().catch(reject);
     });
 }
 
 
-async function playSequence(sequence) {
+/*
+----------------------------------------
+WAIT
+----------------------------------------
+*/
 
-    sequenceRunning = true;
-    sequenceCancelled = false;
+function wait(ms) {
 
-    status.textContent = "COACHING";
-    playButton.textContent = "Ⅱ";
+    return new Promise(resolve => {
 
-    try {
+        setTimeout(resolve, ms);
 
-        for (const item of sequence) {
-
-            if (sequenceCancelled) break;
-
-            if (item.audio) {
-
-                status.textContent = "COACHING";
-
-                await playClip(item.audio);
-
-            }
-
-            if (item.wait) {
-
-                status.textContent = "YOUR TURN";
-
-                await wait(item.wait);
-            }
-        }
-
-        if (!sequenceCancelled) {
-            status.textContent = "YOUR TURN";
-            playButton.textContent = "▶";
-        }
-
-    } catch (error) {
-
-        console.error(error);
-        status.textContent = "AUDIO ERROR";
-
-    }
-
-    sequenceRunning = false;
+    });
 }
 
 
-async function playAudio() {
+/*
+----------------------------------------
+60 SECOND TIMER
+----------------------------------------
+*/
 
-    const step = steps[currentStep];
+function startChallengeTimer() {
 
-    if (step.sequence) {
+    challengeStarted = true;
 
-        if (sequenceRunning) {
+    progressWrap.style.display = "block";
 
-            sequenceCancelled = true;
-            audio.pause();
+    let secondsRemaining = 60;
 
-            playButton.textContent = "▶";
-            status.textContent = "PAUSED";
+    timer.textContent =
+        secondsRemaining + " SEC";
 
-            return;
-        }
+    progressBar.style.width = "0%";
 
-        await playSequence(step.sequence);
-        return;
-    }
+    const timerInterval =
+        setInterval(() => {
+
+            secondsRemaining--;
+
+            if (secondsRemaining >= 0) {
+
+                timer.textContent =
+                    secondsRemaining + " SEC";
+
+                const elapsed =
+                    60 - secondsRemaining;
+
+                const percentage =
+                    (elapsed / 60) * 100;
+
+                progressBar.style.width =
+                    percentage + "%";
+            }
+
+            if (secondsRemaining <= 0) {
+
+                clearInterval(timerInterval);
+
+                timer.textContent = "TIME";
+
+                progressBar.style.width =
+                    "100%";
+            }
+
+        }, 1000);
+}
+
+
+/*
+----------------------------------------
+WORKOUT
+----------------------------------------
+*/
+
+async function runWorkout() {
+
+    workoutStarted = true;
+
+    startButton.disabled = true;
+
+    startButton.textContent = "●";
+
+    status.textContent = "COACHING";
+
+    substatus.textContent =
+        "Workout in progress";
+
 
     try {
 
-        if (audio.paused) {
-            await audio.play();
-        } else {
-            audio.pause();
-        }
+        /*
+        WELCOME
+        */
 
-    } catch (error) {
+        await playClip(
+            "audio/brock_step1.mp3"
+        );
 
-        console.error("Audio playback failed:", error);
-        status.textContent = "AUDIO ERROR";
+
+        /*
+        SHORT TRANSITION
+        */
+
+        status.textContent = "GET READY";
+
+        await wait(3000);
+
+
+        /*
+        DRILL SETUP
+        */
+
+        status.textContent = "COACHING";
+
+        await playClip(
+            "audio/drill_60_setup.mp3"
+        );
+
+
+        /*
+        THE 60 SECOND CHALLENGE
+        STARTS NOW
+        */
+
+        status.textContent = "WORK";
+
+        substatus.textContent =
+            "Count your makes";
+
+        startChallengeTimer();
+
+
+        /*
+        FIRST 20 SECONDS
+        */
+
+        await wait(20000);
+
+
+        /*
+        CUE 1
+        */
+
+        status.textContent = "COACHING";
+
+        await playClip(
+            "audio/cue_balance.mp3"
+        );
+
+        status.textContent = "WORK";
+
+
+        /*
+        SECOND 20 SECONDS
+        */
+
+        await wait(20000);
+
+
+        /*
+        CUE 2
+        */
+
+        status.textContent = "COACHING";
+
+        await playClip(
+            "audio/cue_follow_through.mp3"
+        );
+
+        status.textContent = "WORK";
+
+
+        /*
+        NEXT 10 SECONDS
+        */
+
+        await wait(10000);
+
+
+        /*
+        10 SECOND WARNING
+        */
+
+        status.textContent = "COACHING";
+
+        await playClip(
+            "audio/drill_60_ten_seconds.mp3"
+        );
+
+        status.textContent = "FINISH STRONG";
+
+
+        /*
+        FINAL 10 SECONDS
+        */
+
+        await wait(10000);
+
+
+        /*
+        FINISH
+        */
+
+        status.textContent = "COACHING";
+
+        await playClip(
+            "audio/drill_60_finish.mp3"
+        );
+
+
+        /*
+        COMPLETE
+        */
+
+        status.textContent =
+            "✓ BLUEPRINT COMPLETE";
+
+        substatus.textContent =
+            "Workout complete";
+
+        startButton.textContent = "✓";
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        status.textContent =
+            "AUDIO ERROR";
+
+        substatus.textContent =
+            "Please refresh and try again.";
+
+        startButton.textContent = "!";
     }
 }
 
 
-playButton.addEventListener("click", playAudio);
+/*
+----------------------------------------
+START
+----------------------------------------
+*/
 
+startButton.addEventListener(
+    "click",
+    () => {
 
-againButton.addEventListener("click", async () => {
+        if (!workoutStarted) {
+            runWorkout();
+        }
 
-    audio.pause();
-    audio.currentTime = 0;
-
-    try {
-
-        await audio.play();
-
-    } catch (error) {
-
-        console.error(error);
     }
-});
-
-
-nextButton.addEventListener("click", () => {
-
-    if (currentStep < steps.length - 1) {
-
-        currentStep++;
-        loadStep();
-
-    } else {
-
-        audio.pause();
-
-        stepLabel.textContent = "BLUEPRINT COMPLETE";
-        stepTitle.textContent = "Workout Complete";
-
-        status.textContent = "🏅 SHOOTING";
-
-        playButton.textContent = "✓";
-        playButton.disabled = true;
-
-        againButton.disabled = true;
-        nextButton.disabled = true;
-    }
-});
-
-
-audio.addEventListener("play", () => {
-
-    playButton.textContent = "Ⅱ";
-    status.textContent = "COACHING";
-});
-
-
-audio.addEventListener("pause", () => {
-
-    if (!audio.ended) {
-
-        playButton.textContent = "▶";
-        status.textContent = "PAUSED";
-    }
-});
-
-
-audio.addEventListener("ended", () => {
-
-    playButton.textContent = "▶";
-    status.textContent = "YOUR TURN";
-});
-
-
-loadStep();
+);
 
 </script>
 
