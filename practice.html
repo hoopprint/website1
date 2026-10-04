@@ -433,68 +433,68 @@ async function runWorkout() {
         FIRST 20 SECONDS
         */
 
-        await wait(20000);
 
-
-        /*
-        CUE 1
-        */
-
-        status.textContent = "COACHING";
-
-        await playClip(
-            "audio/cue_balance.mp3"
-        );
-
-        status.textContent = "WORK";
-
-
-        /*
-        SECOND 20 SECONDS
-        */
-
-        await wait(20000);
-
-
-        /*
-        CUE 2
-        */
-
-        status.textContent = "COACHING";
-
-        await playClip(
-            "audio/cue_follow_through.mp3"
-        );
-
-        status.textContent = "WORK";
-
-
-        /*
-        NEXT 10 SECONDS
-        */
-
-        await wait(10000);
-
-
-        /*
-        10 SECOND WARNING
-        */
-
-        status.textContent = "COACHING";
-
-        await playClip(
-            "audio/drill_60_ten_seconds.mp3"
-        );
-
-        status.textContent = "FINISH STRONG";
-
-
-        /*
-        FINAL 10 SECONDS
-        */
-
-        await wait(10000);
-
+    await wait(20000);
+    
+    
+    /*
+    FOLLOW-THROUGH CUE
+    */
+    
+    status.textContent = "COACHING";
+    
+    await playClip(
+        "audio/cue_follow_through.mp3"
+    );
+    
+    status.textContent = "WORK";
+    
+    
+    /*
+    WORK UNTIL 30 SECONDS
+    */
+    
+    await wait(10000);
+    
+    
+    /*
+    30 SECOND CUE
+    */
+    
+    status.textContent = "COACHING";
+    
+    await playClip(
+        "audio/drill_60_thirty_seconds.mp3"
+    );
+    
+    status.textContent = "WORK";
+    
+    
+    /*
+    WORK UNTIL 50 SECONDS
+    */
+    
+    await wait(20000);
+    
+    
+    /*
+    10 SECOND WARNING
+    */
+    
+    status.textContent = "COACHING";
+    
+    await playClip(
+        "audio/drill_60_ten_seconds.mp3"
+    );
+    
+    status.textContent = "FINISH STRONG";
+    
+    
+    /*
+    FINAL 10 SECONDS
+    */
+    
+    await wait(10000);
 
         /*
         FINISH
