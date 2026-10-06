@@ -164,26 +164,65 @@ h1 {
     line-height: 1.6;
 }
 
-.play-wrap {
+.audio-player {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.seek-bar {
+    width: 100%;
+    cursor: pointer;
+}
+
+.time-row {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 8px;
+    color: #777;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.audio-controls {
+    display: flex;
     align-items: center;
-    margin-top: 55px;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 30px;
 }
 
 .play-button {
-    width: 132px;
-    height: 132px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     border: 0;
     background: #fff;
     color: #000;
-    font-size: 38px;
+    font-size: 36px;
     cursor: pointer;
+}
+
+.skip-button {
+    min-width: 64px;
+    min-height: 48px;
+    border: 1px solid #333;
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.skip-button:active,
+.play-button:active {
+    transform: scale(.96);
 }
 
 .status {
     margin-top: 20px;
+    text-align: center;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 2px;
@@ -330,15 +369,53 @@ h1 {
                 Your coach takes it from here.
             </div>
 
-            <div class="play-wrap">
 
-                <button
-                    class="play-button"
-                    id="play-button"
-                    aria-label="Start workout"
+            <!-- CUSTOM AUDIO PLAYER -->
+            <div class="audio-player">
+
+                <input
+                    type="range"
+                    id="seek-bar"
+                    class="seek-bar"
+                    min="0"
+                    max="100"
+                    value="0"
+                    step="0.1"
+                    aria-label="Workout progress"
                 >
-                    ▶
-                </button>
+
+                <div class="time-row">
+                    <span id="current-time">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+
+                <div class="audio-controls">
+
+                    <button
+                        class="skip-button"
+                        id="rewind-button"
+                        aria-label="Rewind 10 seconds"
+                    >
+                        ↶ 10
+                    </button>
+
+                    <button
+                        class="play-button"
+                        id="play-button"
+                        aria-label="Play workout"
+                    >
+                        ▶
+                    </button>
+
+                    <button
+                        class="skip-button"
+                        id="forward-button"
+                        aria-label="Fast forward 10 seconds"
+                    >
+                        10 ↷
+                    </button>
+
+                </div>
 
                 <div
                     class="status"
@@ -389,12 +466,51 @@ const playButton =
 const backButton =
     document.getElementById("back-button");
 
+const rewindButton =
+    document.getElementById("rewind-button");
+
+const forwardButton =
+    document.getElementById("forward-button");
+
+const seekBar =
+    document.getElementById("seek-bar");
+
+const currentTimeDisplay =
+    document.getElementById("current-time");
+
+const durationDisplay =
+    document.getElementById("duration");
+
 const status =
     document.getElementById("status");
 
 const audio =
     document.getElementById("coach-audio");
 
+
+function formatTime(seconds) {
+
+    if (!Number.isFinite(seconds)) {
+        return "0:00";
+    }
+
+    const minutes =
+        Math.floor(seconds / 60);
+
+    const remainingSeconds =
+        Math.floor(seconds % 60)
+        .toString()
+        .padStart(2, "0");
+
+    return `${minutes}:${remainingSeconds}`;
+}
+
+
+/*
+----------------------------------------
+OPEN WORKOUT
+----------------------------------------
+*/
 
 document
     .querySelectorAll(".workout")
@@ -419,10 +535,20 @@ document
                 audio.src =
                     workout.dataset.audio;
 
+                audio.load();
+
                 playButton.textContent = "▶";
 
                 status.textContent =
                     "START WORKOUT";
+
+                seekBar.value = 0;
+
+                currentTimeDisplay.textContent =
+                    "0:00";
+
+                durationDisplay.textContent =
+                    "0:00";
 
                 libraryScreen.style.display =
                     "none";
@@ -436,6 +562,12 @@ document
 
     });
 
+
+/*
+----------------------------------------
+PLAY / PAUSE
+----------------------------------------
+*/
 
 playButton.addEventListener(
     "click",
@@ -464,6 +596,116 @@ playButton.addEventListener(
 );
 
 
+/*
+----------------------------------------
+REWIND 10 SECONDS
+----------------------------------------
+*/
+
+rewindButton.addEventListener(
+    "click",
+    () => {
+
+        audio.currentTime =
+            Math.max(
+                0,
+                audio.currentTime - 10
+            );
+    }
+);
+
+
+/*
+----------------------------------------
+FAST FORWARD 10 SECONDS
+----------------------------------------
+*/
+
+forwardButton.addEventListener(
+    "click",
+    () => {
+
+        if (!Number.isFinite(audio.duration)) {
+            return;
+        }
+
+        audio.currentTime =
+            Math.min(
+                audio.duration,
+                audio.currentTime + 10
+            );
+    }
+);
+
+
+/*
+----------------------------------------
+SEEK BAR
+----------------------------------------
+*/
+
+seekBar.addEventListener(
+    "input",
+    () => {
+
+        if (!Number.isFinite(audio.duration)) {
+            return;
+        }
+
+        audio.currentTime =
+            (seekBar.value / 100) *
+            audio.duration;
+    }
+);
+
+
+/*
+----------------------------------------
+LOAD DURATION
+----------------------------------------
+*/
+
+audio.addEventListener(
+    "loadedmetadata",
+    () => {
+
+        durationDisplay.textContent =
+            formatTime(audio.duration);
+    }
+);
+
+
+/*
+----------------------------------------
+UPDATE PROGRESS
+----------------------------------------
+*/
+
+audio.addEventListener(
+    "timeupdate",
+    () => {
+
+        currentTimeDisplay.textContent =
+            formatTime(audio.currentTime);
+
+        if (Number.isFinite(audio.duration) &&
+            audio.duration > 0) {
+
+            seekBar.value =
+                (audio.currentTime /
+                audio.duration) * 100;
+        }
+
+    }
+);
+
+
+/*
+----------------------------------------
+PLAYING
+----------------------------------------
+*/
+
 audio.addEventListener(
     "play",
     () => {
@@ -475,6 +717,12 @@ audio.addEventListener(
     }
 );
 
+
+/*
+----------------------------------------
+PAUSED
+----------------------------------------
+*/
 
 audio.addEventListener(
     "pause",
@@ -492,6 +740,12 @@ audio.addEventListener(
 );
 
 
+/*
+----------------------------------------
+COMPLETE
+----------------------------------------
+*/
+
 audio.addEventListener(
     "ended",
     () => {
@@ -500,9 +754,20 @@ audio.addEventListener(
 
         status.textContent =
             "BLUEPRINT COMPLETE";
+
+        seekBar.value = 100;
+
+        currentTimeDisplay.textContent =
+            formatTime(audio.duration);
     }
 );
 
+
+/*
+----------------------------------------
+BACK TO LIBRARY
+----------------------------------------
+*/
 
 backButton.addEventListener(
     "click",
@@ -510,6 +775,14 @@ backButton.addEventListener(
 
         audio.pause();
         audio.currentTime = 0;
+
+        seekBar.value = 0;
+
+        currentTimeDisplay.textContent =
+            "0:00";
+
+        durationDisplay.textContent =
+            "0:00";
 
         playerScreen.style.display =
             "none";
