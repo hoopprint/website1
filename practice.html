@@ -11,6 +11,32 @@
     box-sizing: border-box;
 }
 
+    .brand-link {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    padding: 8px 0;
+}
+
+.brand-link:hover,
+.brand-link:focus {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+    .brand-link {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+}
+
+    
 body {
     margin: 0;
     background: #050505;
@@ -23,13 +49,6 @@ body {
     margin: auto;
     min-height: 100vh;
     padding: 30px 22px 50px;
-}
-
-.brand {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    opacity: .5;
 }
 
 .hero {
@@ -349,7 +368,7 @@ h1 {
     <section id="library-screen">
 
         <a class="brand" href="https://hoopprint.com">
-            HOOP-PRINT
+            ← HOOP-PRINT
         </a>
 
         <div class="hero">
