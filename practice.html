@@ -112,6 +112,108 @@ h1 {
     letter-spacing: 1px;
 }
 
+
+/* -----------------------------------
+   LEAD FORM
+----------------------------------- */
+
+.lead-box {
+    margin-top: 34px;
+    border: 1px solid #292929;
+    padding: 24px;
+}
+
+.lead-eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    opacity: .45;
+}
+
+.lead-title {
+    margin-top: 8px;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.lead-copy {
+    margin-top: 9px;
+    color: #999;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.lead-form {
+    margin-top: 20px;
+    display: flex;
+    gap: 8px;
+}
+
+.lead-input {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid #3a3a3a;
+    background: #0c0c0c;
+    color: #fff;
+    padding: 15px;
+    font-size: 16px;
+    outline: none;
+}
+
+.lead-input:focus {
+    border-color: #888;
+}
+
+.lead-submit {
+    border: 0;
+    background: #fff;
+    color: #000;
+    padding: 14px 16px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    cursor: pointer;
+}
+
+.lead-submit:disabled {
+    opacity: .5;
+    cursor: default;
+}
+
+.lead-note {
+    margin-top: 12px;
+    color: #555;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.lead-status {
+    min-height: 18px;
+    margin-top: 12px;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.lead-status.success {
+    color: #fff;
+}
+
+@media (max-width: 480px) {
+    .lead-form {
+        flex-direction: column;
+    }
+
+    .lead-submit {
+        min-height: 48px;
+    }
+}
+
+
+/* -----------------------------------
+   PLAYER
+----------------------------------- */
+
 .player-screen {
     display: none;
     min-height: 85vh;
@@ -326,6 +428,62 @@ h1 {
             HOOPPRINT FUNDAMENTALS — MORE WORKOUTS COMING SOON
         </div>
 
+
+        <!-- EMAIL CAPTURE -->
+        <section class="lead-box">
+
+            <div class="lead-eyebrow">
+                GET NEW WORKOUTS
+            </div>
+
+            <div class="lead-title">
+                Keep training.
+            </div>
+
+            <div class="lead-copy">
+                New HoopPrint workouts are coming.
+                Get notified when they drop.
+            </div>
+
+            <form
+                class="lead-form"
+                id="lead-form"
+            >
+
+                <input
+                    class="lead-input"
+                    id="lead-email"
+                    type="email"
+                    placeholder="you@email.com"
+                    autocomplete="email"
+                    required
+                    aria-label="Email address"
+                >
+
+                <button
+                    class="lead-submit"
+                    id="lead-submit"
+                    type="submit"
+                >
+                    KEEP ME POSTED →
+                </button>
+
+            </form>
+
+            <div
+                class="lead-status"
+                id="lead-status"
+                aria-live="polite"
+            ></div>
+
+            <div class="lead-note">
+                By submitting, you agree to receive HoopPrint
+                workout and product updates. Unsubscribe anytime.
+            </div>
+
+        </section>
+
+
         <div class="footer">
             YOUR GAME. YOUR BLUEPRINT.
         </div>
@@ -370,7 +528,6 @@ h1 {
             </div>
 
 
-            <!-- CUSTOM AUDIO PLAYER -->
             <div class="audio-player">
 
                 <input
@@ -445,6 +602,16 @@ h1 {
 
 <script>
 
+const API_BASE =
+    "https://hoopprint-api.4gbvj7hgbr.workers.dev";
+
+
+/*
+----------------------------------------
+PLAYER REFERENCES
+----------------------------------------
+*/
+
 const libraryScreen =
     document.getElementById("library-screen");
 
@@ -486,6 +653,25 @@ const status =
 
 const audio =
     document.getElementById("coach-audio");
+
+
+/*
+----------------------------------------
+LEAD REFERENCES
+----------------------------------------
+*/
+
+const leadForm =
+    document.getElementById("lead-form");
+
+const leadEmail =
+    document.getElementById("lead-email");
+
+const leadSubmit =
+    document.getElementById("lead-submit");
+
+const leadStatus =
+    document.getElementById("lead-status");
 
 
 function formatTime(seconds) {
@@ -576,11 +762,8 @@ playButton.addEventListener(
         try {
 
             if (audio.paused) {
-
                 await audio.play();
-
             } else {
-
                 audio.pause();
             }
 
@@ -598,7 +781,7 @@ playButton.addEventListener(
 
 /*
 ----------------------------------------
-REWIND 10 SECONDS
+REWIND
 ----------------------------------------
 */
 
@@ -617,7 +800,7 @@ rewindButton.addEventListener(
 
 /*
 ----------------------------------------
-FAST FORWARD 10 SECONDS
+FAST FORWARD
 ----------------------------------------
 */
 
@@ -640,7 +823,7 @@ forwardButton.addEventListener(
 
 /*
 ----------------------------------------
-SEEK BAR
+SEEK
 ----------------------------------------
 */
 
@@ -661,7 +844,7 @@ seekBar.addEventListener(
 
 /*
 ----------------------------------------
-LOAD DURATION
+METADATA
 ----------------------------------------
 */
 
@@ -677,7 +860,7 @@ audio.addEventListener(
 
 /*
 ----------------------------------------
-UPDATE PROGRESS
+PROGRESS
 ----------------------------------------
 */
 
@@ -688,8 +871,10 @@ audio.addEventListener(
         currentTimeDisplay.textContent =
             formatTime(audio.currentTime);
 
-        if (Number.isFinite(audio.duration) &&
-            audio.duration > 0) {
+        if (
+            Number.isFinite(audio.duration) &&
+            audio.duration > 0
+        ) {
 
             seekBar.value =
                 (audio.currentTime /
@@ -699,12 +884,6 @@ audio.addEventListener(
     }
 );
 
-
-/*
-----------------------------------------
-PLAYING
-----------------------------------------
-*/
 
 audio.addEventListener(
     "play",
@@ -717,12 +896,6 @@ audio.addEventListener(
     }
 );
 
-
-/*
-----------------------------------------
-PAUSED
-----------------------------------------
-*/
 
 audio.addEventListener(
     "pause",
@@ -739,12 +912,6 @@ audio.addEventListener(
     }
 );
 
-
-/*
-----------------------------------------
-COMPLETE
-----------------------------------------
-*/
 
 audio.addEventListener(
     "ended",
@@ -765,7 +932,7 @@ audio.addEventListener(
 
 /*
 ----------------------------------------
-BACK TO LIBRARY
+BACK
 ----------------------------------------
 */
 
@@ -791,6 +958,100 @@ backButton.addEventListener(
             "block";
 
         window.scrollTo(0, 0);
+    }
+);
+
+
+/*
+----------------------------------------
+EMAIL LEAD
+----------------------------------------
+*/
+
+leadForm.addEventListener(
+    "submit",
+    async event => {
+
+        event.preventDefault();
+
+        const email =
+            leadEmail.value.trim().toLowerCase();
+
+        if (!email) {
+            return;
+        }
+
+        leadSubmit.disabled = true;
+
+        leadSubmit.textContent =
+            "SAVING...";
+
+        leadStatus.textContent = "";
+
+        leadStatus.classList.remove("success");
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `${API_BASE}/leads`,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            email: email,
+                            source: "practice_library"
+                        })
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    data.error ||
+                    "Unable to save email."
+                );
+            }
+
+
+            leadEmail.value = "";
+
+            leadStatus.textContent =
+                "You're in. New workouts coming soon.";
+
+            leadStatus.classList.add(
+                "success"
+            );
+
+        }
+
+        catch (error) {
+
+            console.error(error);
+
+            leadStatus.textContent =
+                "Something went wrong. Please try again.";
+        }
+
+        finally {
+
+            leadSubmit.disabled = false;
+
+            leadSubmit.textContent =
+                "KEEP ME POSTED →";
+        }
+
     }
 );
 
