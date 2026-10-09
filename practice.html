@@ -368,6 +368,70 @@ h1 {
     letter-spacing: 2px;
     opacity: .25;
 }
+.profile-box {
+    margin: 32px 0 48px;
+    padding: 24px;
+    border: 1px solid #333;
+}
+
+.profile-box h2 {
+    margin: 0 0 8px;
+    font-size: 24px;
+}
+
+.profile-box p {
+    color: #999;
+    font-size: 14px;
+}
+
+#player-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+#player-profile label {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#player-profile select {
+    padding: 14px;
+    background: #111;
+    color: #fff;
+    border: 1px solid #444;
+    font-size: 16px;
+}
+
+#player-profile button {
+    margin-top: 20px;
+    padding: 17px;
+    background: #fff;
+    color: #000;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+#recommendation {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    line-height: 1.6;
+}
+
+#recommendation button {
+    margin-top: 12px;
+    padding: 14px;
+    background: white;
+    color: black;
+    border: 0;
+    font-weight: 800;
+    cursor: pointer;
+}
+	
 </style>
 </head>
 
@@ -375,6 +439,50 @@ h1 {
 
 <main class="app">
 
+<section class="profile-box">
+    <h2>Build Your Player Profile</h2>
+    <p>Tell us about your game to get a recommended workout.</p>
+
+    <form id="player-profile">
+
+        <label for="position">Preferred Position</label>
+        <select id="position">
+            <option value="guard">Guard</option>
+            <option value="wing">Wing</option>
+            <option value="big">Forward / Center</option>
+            <option value="any">Positionless / Not Sure</option>
+        </select>
+
+        <label for="level">Skill Level</label>
+        <select id="level">
+            <option value="beginner">Beginner</option>
+            <option value="intermediate" selected>Intermediate</option>
+            <option value="advanced">Advanced</option>
+        </select>
+
+        <label for="style">Playing Style</label>
+        <select id="style">
+            <option value="shot_creator">Shot Creator</option>
+            <option value="shooter">Shooter</option>
+            <option value="slasher">Slasher</option>
+            <option value="playmaker">Playmaker</option>
+            <option value="all_around">All-Around</option>
+        </select>
+
+        <label for="goal">What Do You Want to Improve?</label>
+        <select id="goal">
+            <option value="ball_handling">Ball Handling</option>
+            <option value="shooting">Shooting</option>
+            <option value="finishing">Finishing</option>
+            <option value="footwork">Footwork</option>
+        </select>
+
+        <button type="submit">FIND MY WORKOUT →</button>
+    </form>
+
+    <div id="recommendation" hidden></div>
+</section>
+	
     <!-- LIBRARY -->
     <section id="library-screen">
 
@@ -454,8 +562,37 @@ h1 {
             </div>
 
         </section>
+        <!-- BALL HANDLING -->
+	<section class="category">
 
+    <div class="category-title">
+        BALL HANDLING
+    </div>
 
+    <div
+        class="workout"
+        data-title="Progressive Ball Handling"
+        data-category="BALL HANDLING"
+        data-meta="10 MIN · INTERMEDIATE · BALL"
+        data-audio="audio/Drill_3_progressive_ball_handling.mp3"
+    >
+
+        <div class="workout-name">
+            Progressive Ball Handling
+        </div>
+
+        <div class="workout-meta">
+            10 MIN · INTERMEDIATE · BALL
+        </div>
+
+        <div class="workout-button">
+            START WORKOUT →
+        </div>
+
+    </div>
+
+</section>
+		
         <div class="coming-soon">
             HOOP-PRINT FUNDAMENTALS — MORE WORKOUTS COMING SOON
         </div>
@@ -1087,6 +1224,81 @@ leadForm.addEventListener(
     }
 );
 
+const profileForm = document.getElementById("player-profile");
+const recommendation = document.getElementById("recommendation");
+
+const workouts = {
+    ball_handling: {
+        title: "Progressive Ball Handling",
+        reason: "Build control, change of speed, and separation."
+    },
+    shooting: {
+        title: "Form Shooting Fundamentals",
+        reason: "Develop consistent shooting mechanics and balance."
+    },
+    finishing: {
+        title: "60-Second Pull-Up Challenge",
+        reason: "Practice creating space and finishing with a pull-up jumper."
+    },
+    footwork: {
+        title: "Form Shooting Fundamentals",
+        reason: "Develop balance and coordinated shooting footwork."
+    }
+};
+
+/* Reco Logic for Player Profile */
+profileForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const profile = {
+        position: document.getElementById("position").value,
+        level: document.getElementById("level").value,
+        style: document.getElementById("style").value,
+        goal: document.getElementById("goal").value
+    };
+
+    localStorage.setItem(
+        "hoopprint_player_profile",
+        JSON.stringify(profile)
+    );
+
+    const workout = workouts[profile.goal];
+
+    recommendation.hidden = false;
+    recommendation.replaceChildren();
+
+    const heading = document.createElement("h3");
+    heading.textContent = "RECOMMENDED FOR YOU";
+
+    const name = document.createElement("strong");
+    name.textContent = workout.title;
+
+    const description = document.createElement("p");
+    description.textContent = workout.reason;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = "START THIS WORKOUT →";
+
+    button.addEventListener("click", () => {
+        const matchingCard = [...document.querySelectorAll(".workout")]
+            .find(card => card.dataset.title === workout.title);
+
+        if (matchingCard) {
+            matchingCard.click();
+        } else {
+            alert("This workout is coming soon.");
+        }
+    });
+
+    recommendation.append(
+        heading,
+        name,
+        description,
+        button
+    );
+});
+	
 </script>
 
 </body>
