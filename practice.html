@@ -431,6 +431,47 @@ h1 {
     font-weight: 800;
     cursor: pointer;
 }
+
+	.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 12px 18px;
+
+    background: transparent;
+    color: #ffffff;
+
+    border: 1px solid #555555;
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    min-height: 44px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.home-button:hover {
+    background: #1a1a1a;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.home-button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .home-button {
+        font-size: 11px;
+        padding: 12px 14px;
+    }
+}
 	
 </style>
 </head>
@@ -439,56 +480,14 @@ h1 {
 
 <main class="app">
 
-<section class="profile-box">
-    <h2>Build Your Player Profile</h2>
-    <p>Tell us about your game to get a recommended workout.</p>
-
-    <form id="player-profile">
-
-        <label for="position">Preferred Position</label>
-        <select id="position">
-            <option value="guard">Guard</option>
-            <option value="wing">Wing</option>
-            <option value="big">Forward / Center</option>
-            <option value="any">Positionless / Not Sure</option>
-        </select>
-
-        <label for="level">Skill Level</label>
-        <select id="level">
-            <option value="beginner">Beginner</option>
-            <option value="intermediate" selected>Intermediate</option>
-            <option value="advanced">Advanced</option>
-        </select>
-
-        <label for="style">Playing Style</label>
-        <select id="style">
-            <option value="shot_creator">Shot Creator</option>
-            <option value="shooter">Shooter</option>
-            <option value="slasher">Slasher</option>
-            <option value="playmaker">Playmaker</option>
-            <option value="all_around">All-Around</option>
-        </select>
-
-        <label for="goal">What Do You Want to Improve?</label>
-        <select id="goal">
-            <option value="ball_handling">Ball Handling</option>
-            <option value="shooting">Shooting</option>
-            <option value="finishing">Finishing</option>
-            <option value="footwork">Footwork</option>
-        </select>
-
-        <button type="submit">FIND MY WORKOUT →</button>
-    </form>
-
-    <div id="recommendation" hidden></div>
-</section>
 	
     <!-- LIBRARY -->
     <section id="library-screen">
 
-        <a class="brand" href="https://hoopprint.com">
-            ← HOOP-PRINT
-        </a>
+	 <a class="home-button" href="https://hoopprint.com/">
+	    <span aria-hidden="true">←</span>
+	    BACK TO HOOPPRINT
+	</a>
 
         <div class="hero">
 
@@ -592,7 +591,8 @@ h1 {
     </div>
 
 </section>
-		
+
+
         <div class="coming-soon">
             HOOP-PRINT FUNDAMENTALS — MORE WORKOUTS COMING SOON
         </div>
@@ -659,7 +659,53 @@ h1 {
 
     </section>
 
+	<!-- Player Profile  -->
+	
+<section class="profile-box">
+    <h2>Build Your Player Profile</h2>
+    <p>Tell us about your game to get a recommended workout.</p>
 
+    <form id="player-profile">
+
+        <label for="position">Preferred Position</label>
+        <select id="position">
+            <option value="guard">Guard</option>
+            <option value="wing">Wing</option>
+            <option value="big">Forward / Center</option>
+            <option value="any">Positionless / Not Sure</option>
+        </select>
+
+        <label for="level">Skill Level</label>
+        <select id="level">
+            <option value="beginner">Beginner</option>
+            <option value="intermediate" selected>Intermediate</option>
+            <option value="advanced">Advanced</option>
+        </select>
+
+        <label for="style">Playing Style</label>
+        <select id="style">
+            <option value="shot_creator">Shot Creator</option>
+            <option value="shooter">Shooter</option>
+            <option value="slasher">Slasher</option>
+            <option value="playmaker">Playmaker</option>
+            <option value="all_around">All-Around</option>
+        </select>
+
+        <label for="goal">What Do You Want to Improve?</label>
+        <select id="goal">
+            <option value="ball_handling">Ball Handling</option>
+            <option value="shooting">Shooting</option>
+            <option value="finishing">Finishing</option>
+            <option value="footwork">Footwork</option>
+        </select>
+
+        <button type="submit">FIND MY WORKOUT →</button>
+    </form>
+
+    <div id="recommendation" hidden></div>
+</section>
+
+	
     <!-- PLAYER -->
     <section
         id="player-screen"
