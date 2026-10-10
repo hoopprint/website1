@@ -509,6 +509,74 @@ body {
     background-attachment: fixed;
 }
 
+
+/* -----------------------------------
+   HOOPPRINT WORKOUT MODULES
+   Blueprint Card Styling
+----------------------------------- */
+
+.workout {
+    background: rgba(5, 17, 35, 0.92);
+    border: 1px solid rgba(112, 173, 255, 0.45);
+    border-radius: 6px;
+
+    padding: 24px;
+    margin-bottom: 16px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.25);
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.workout:hover,
+.workout:focus-visible {
+    background: rgba(14, 38, 70, 0.96);
+    border-color: #72aaf5;
+
+    box-shadow:
+        0 0 20px rgba(67, 143, 255, 0.18);
+}
+
+.workout-name {
+    color: #ffffff;
+}
+
+.workout-meta {
+    color: #a8c7ee;
+}
+
+.workout-button {
+    color: #80b7ff;
+}
+
+/* Mobile Optimization */
+
+@media (max-width: 600px) {
+    .workout {
+        padding: 22px 20px;
+        margin-bottom: 18px;
+        border: 1.5px solid rgba(112, 173, 255, 0.65);
+        background: rgba(5, 17, 35, 0.96);
+    }
+
+    .workout-name {
+        font-size: 23px;
+        line-height: 1.15;
+    }
+
+    .workout-button {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+}
+
+	
 	
 </style>
 	
