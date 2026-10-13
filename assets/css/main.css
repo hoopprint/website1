@@ -3507,10 +3507,11 @@ input, select, textarea {
 
 .hoopprint-flow-container {
   width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px 20px;
+  padding: 40px 15px;
   margin: 20px auto;
   box-sizing: border-box;
 }
@@ -3525,8 +3526,12 @@ input, select, textarea {
 
 @media (max-width: 768px) {
   .hoopprint-flow-container {
-    padding: 35px 15px;
+    padding: 25px 10px;
     margin: 10px auto;
+  }
+
+  .hoopprint-flow-image {
+    max-width: 100%;
   }
 }
 
