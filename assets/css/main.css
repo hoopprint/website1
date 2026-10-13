@@ -3505,6 +3505,31 @@ input, select, textarea {
 			opacity: 1;
 		}
 
+.hoopprint-flow-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  margin: 20px auto;
+  box-sizing: border-box;
+}
+
+.hoopprint-flow-image {
+  display: block;
+  width: 100%;
+  max-width: 950px;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .hoopprint-flow-container {
+    padding: 35px 15px;
+    margin: 10px auto;
+  }
+}
+
 /* Footer */
 
 	#footer {
