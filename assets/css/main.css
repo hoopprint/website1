@@ -3617,3 +3617,13 @@ html {
 			}
 
 
+
+/* Smooth scrolling to Join form */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Position signup box after anchor navigation */
+#lead-signup {
+    scroll-margin-top: 40px;
+}
