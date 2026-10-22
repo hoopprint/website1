@@ -758,8 +758,8 @@ body {
 	<!-- Player Profile  -->
 	
 <section class="profile-box">
-    <h2>Build Your Player Profile</h2>
-    <p>Tell us about your game to get a recommended workout.</p>
+    <h2>Find My Workout</h2>
+    <p>Tell us about your game and what you have available. We'll match you with a workout.</p>
 
     <form id="player-profile">
 
@@ -795,6 +795,30 @@ body {
             <option value="footwork">Footwork</option>
         </select>
 
+		<label for="equipment">Available Equipment</label>
+		<select id="equipment">
+		    <option value="none">No ball or basket</option>
+		    <option value="ball_only">Ball only</option>
+		    <option value="ball_basket" selected>Ball + Basket</option>
+		    <option value="ball_basket_partners">Ball + Basket + Partner(s)</option>
+		</select>
+		
+		<label for="music">What Do You Like to Train To? <span style="opacity:.5;">(Optional)</span></label>
+		<select id="music">
+		    <option value="">No preference</option>
+		    <option value="none">No music</option>
+		    <option value="hip_hop">Hip-Hop / Rap</option>
+		    <option value="r_and_b">R&amp;B</option>
+		    <option value="pop">Pop</option>
+		    <option value="rock">Rock</option>
+		    <option value="edm">EDM / Dance</option>
+		    <option value="afrobeats">Afrobeats</option>
+		    <option value="latin">Latin / Reggaeton</option>
+		    <option value="country">Country</option>
+		    <option value="indie">Alternative / Indie</option>
+		    <option value="other">Other</option>
+		</select>
+		
         <button type="submit">FIND MY WORKOUT →</button>
     </form>
 
@@ -1463,12 +1487,14 @@ const workouts = {
 profileForm.addEventListener("submit", event => {
     event.preventDefault();
 
-    const profile = {
-        position: document.getElementById("position").value,
-        level: document.getElementById("level").value,
-        style: document.getElementById("style").value,
-        goal: document.getElementById("goal").value
-    };
+	const profile = {
+	    position: document.getElementById("position").value,
+	    level: document.getElementById("level").value,
+	    style: document.getElementById("style").value,
+	    goal: document.getElementById("goal").value,
+	    equipment: document.getElementById("equipment").value,
+	    music: document.getElementById("music").value
+	};
 
     localStorage.setItem(
         "hoopprint_player_profile",
