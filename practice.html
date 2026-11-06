@@ -627,31 +627,85 @@ body {
     margin: 0;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    isolation: isolate;
 
+    /* Blueprint environment stays continuous across the whole page */
+    background-color: #040b14;
     background-image:
         linear-gradient(
-            90deg,
-            rgba(2, 8, 15, 0.94) 0%,
-            rgba(2, 8, 15, 0.78) 42%,
-            rgba(2, 8, 15, 0.40) 75%,
-            rgba(2, 8, 15, 0.28) 100%
+            rgba(67, 143, 255, 0.08) 1px,
+            transparent 1px
         ),
         linear-gradient(
-            180deg,
-            rgba(2, 8, 15, 0.08) 0%,
-            rgba(2, 8, 15, 0.30) 45%,
-            rgba(2, 8, 15, 0.78) 100%
+            90deg,
+            rgba(67, 143, 255, 0.08) 1px,
+            transparent 1px
         ),
-        url("images/practice-blueprint-hero.png");
+        radial-gradient(
+            circle at 62% 18%,
+            rgba(16, 54, 96, 0.42) 0%,
+            rgba(8, 28, 52, 0.26) 38%,
+            rgba(4, 11, 20, 0) 72%
+        );
 
+    background-size:
+        40px 40px,
+        40px 40px,
+        100% 100%;
+
+    background-repeat:
+        repeat,
+        repeat,
+        no-repeat;
+
+    background-attachment: fixed;
+}
+
+/* Full-screen hoop atmosphere — no rectangular hero edge */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+
+    background-image: url("images/practice-blueprint-hero.png");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: #040b14;
+
+    opacity: 0.64;
+}
+
+/* Blend the photo into the Blueprint environment */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2, 8, 15, 0.94) 0%,
+            rgba(2, 8, 15, 0.80) 34%,
+            rgba(2, 8, 15, 0.42) 68%,
+            rgba(2, 8, 15, 0.20) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(2, 8, 15, 0.10) 0%,
+            rgba(2, 8, 15, 0.18) 45%,
+            rgba(2, 8, 15, 0.70) 78%,
+            rgba(2, 8, 15, 0.92) 100%
+        );
 }
 
 .app {
+    position: relative;
+    z-index: 1;
     width: min(1180px, calc(100% - 48px));
     max-width: 1180px;
     margin: 0 auto;
@@ -913,6 +967,13 @@ h1 {
 }
 
 @media (max-width: 700px) {
+    body::before {
+        background-size: auto 100vh;
+        background-position: 66% top;
+        opacity: 0.56;
+    }
+
+
     .app {
         width: calc(100% - 36px);
         padding: 18px 0 48px;
