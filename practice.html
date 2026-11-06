@@ -474,42 +474,6 @@ h1 {
 }
 
 
-/* HOOP-PRINT BLUEPRINT BACKGROUND */
-
-body {
-    background-color: #07111f !important;
-
-    background-image:
-        linear-gradient(
-            rgba(67, 143, 255, 0.07) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(67, 143, 255, 0.07) 1px,
-            transparent 1px
-        ),
-        radial-gradient(
-            circle at 50% 25%,
-            #102c52 0%,
-            #091a30 38%,
-            #050c16 100%
-        ) !important;
-
-    background-size:
-        40px 40px,
-        40px 40px,
-        100% 100%;
-
-    background-repeat:
-        repeat,
-        repeat,
-        no-repeat;
-
-    background-attachment: fixed;
-}
-
-
 /* -----------------------------------
    HOOP-PRINT WORKOUT MODULES
    Blueprint Card Styling
@@ -566,6 +530,8 @@ body {
     }
 
     .workout-name {
+        grid-column: 2;
+        grid-row: 1;
         font-size: 23px;
         line-height: 1.15;
     }
@@ -652,30 +618,46 @@ body {
     --hp-muted: rgba(255,255,255,.58);
 }
 
+html,
 body {
-    background:
-        radial-gradient(circle at 78% 5%, rgba(26, 77, 135, .24), transparent 34%),
-        linear-gradient(180deg, #06101c 0%, #050b12 100%) !important;
-    background-attachment: fixed !important;
+    min-height: 100%;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: .14;
+body {
+    margin: 0;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+
     background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-    background-size: 64px 64px;
+        linear-gradient(
+            90deg,
+            rgba(2, 8, 15, 0.94) 0%,
+            rgba(2, 8, 15, 0.78) 42%,
+            rgba(2, 8, 15, 0.40) 75%,
+            rgba(2, 8, 15, 0.28) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(2, 8, 15, 0.08) 0%,
+            rgba(2, 8, 15, 0.30) 45%,
+            rgba(2, 8, 15, 0.78) 100%
+        ),
+        url("images/practice-blueprint-hero.png");
+
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #040b14;
 }
 
 .app {
-    max-width: 860px;
-    padding: 28px 28px 64px;
-    position: relative;
-    z-index: 1;
+    width: min(1180px, calc(100% - 48px));
+    max-width: 1180px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 30px 0 60px;
+    background: transparent;
 }
 
 .practice-kicker {
@@ -695,48 +677,15 @@ body::before {
 }
 
 .hero {
-    margin-top: 58px;
-    margin-bottom: 58px;
-    max-width: 700px;
-
-	position: relative;
-    overflow: hidden;
-    min-height: 520px;
-
+    position: relative;
+    min-height: 620px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 30px 0 60px;
+    background: transparent;
 }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(3, 8, 14, 0.98) 0%,
-            rgba(3, 8, 14, 0.88) 38%,
-            rgba(3, 8, 14, 0.42) 70%,
-            rgba(3, 8, 14, 0.12) 100%
-        ),
-        url("images/Cyan_Blueprint_Basketball_Court.png");
-
-    background-size: cover;
-    background-position: center right;
-    background-repeat: no-repeat;
-
-    z-index: 0;
-}
-
-/* Keep hero text above image */
-
-.hero > * {
-    position: relative;
-    z-index: 1;
-}
-	
 .hero h1,
 h1 {
     font-size: clamp(54px, 10vw, 92px);
@@ -854,6 +803,28 @@ h1 {
     padding-bottom: 5px;
 }
 
+.workout::before {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.workout-name {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.workout-meta {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 0 !important;
+}
+
+.workout-button {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    align-self: center;
+}
+
 .profile-box {
     margin: 70px 0 32px !important;
     padding: 34px 0 38px !important;
@@ -942,7 +913,10 @@ h1 {
 }
 
 @media (max-width: 700px) {
-    .app { padding: 22px 20px 48px; }
+    .app {
+        width: calc(100% - 36px);
+        padding: 18px 0 48px;
+    }
     .hero { margin-top: 40px; margin-bottom: 42px; }
     .hero h1, h1 {
         font-size: clamp(48px, 15vw, 58px);
@@ -955,19 +929,27 @@ h1 {
     }
     .workout {
         grid-template-columns: 42px minmax(0,1fr);
+        grid-template-rows: auto auto auto;
         gap: 12px;
         align-items: start;
         padding: 22px 0 !important;
     }
     .workout::before {
+        grid-column: 1;
+        grid-row: 1 / 4;
         font-size: 27px;
     }
     .workout-name {
         font-size: 23px;
         line-height: 1.02;
     }
+    .workout-meta {
+        grid-column: 2;
+        grid-row: 2;
+    }
     .workout-button {
         grid-column: 2;
+        grid-row: 3;
         justify-self: start;
         margin-top: 4px !important;
     }
@@ -1110,6 +1092,8 @@ h1 {
 
     </div>
 
+</section>
+
 	<!-- Player Profile  -->
 	
 <section class="profile-box">
@@ -1178,8 +1162,6 @@ h1 {
     </form>
 
     <div id="recommendation" hidden></div>
-</section>
-		
 </section>
 
 
