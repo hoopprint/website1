@@ -474,7 +474,7 @@ h1 {
 }
 
 
-/* HOOPPRINT BLUEPRINT BACKGROUND */
+/* HOOP-PRINT BLUEPRINT BACKGROUND */
 
 body {
     background-color: #07111f !important;
@@ -511,7 +511,7 @@ body {
 
 
 /* -----------------------------------
-   HOOPPRINT WORKOUT MODULES
+   HOOP-PRINT WORKOUT MODULES
    Blueprint Card Styling
 ----------------------------------- */
 
@@ -578,7 +578,7 @@ body {
 
 
 /* -----------------------------------
-   HOOPPRINT SECONDARY PANELS
+   HOOP-PRINT SECONDARY PANELS
    Player Profile + Lead Form
 ----------------------------------- */
 
@@ -637,6 +637,315 @@ body {
 
 	
 	
+
+
+/* ===================================
+   HOOP-PRINT PRACTICE — PERFORMANCE LAB
+   Visual refresh
+=================================== */
+:root {
+    --hp-blue: #0b7cff;
+    --hp-blue-soft: #8fc2ff;
+    --hp-bg: #07111f;
+    --hp-panel: rgba(3, 10, 20, 0.72);
+    --hp-line: rgba(255,255,255,.16);
+    --hp-muted: rgba(255,255,255,.58);
+}
+
+body {
+    background:
+        radial-gradient(circle at 78% 5%, rgba(26, 77, 135, .24), transparent 34%),
+        linear-gradient(180deg, #06101c 0%, #050b12 100%) !important;
+    background-attachment: fixed !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .14;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 64px 64px;
+}
+
+.app {
+    max-width: 860px;
+    padding: 28px 28px 64px;
+    position: relative;
+    z-index: 1;
+}
+
+.practice-kicker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+}
+
+.practice-kicker .slash {
+    color: var(--hp-blue);
+    font-size: 18px;
+}
+
+.hero {
+    margin-top: 58px;
+    margin-bottom: 58px;
+    max-width: 700px;
+}
+
+.hero h1,
+h1 {
+    font-size: clamp(54px, 10vw, 92px);
+    line-height: .88;
+    letter-spacing: -4px;
+    text-transform: uppercase;
+    margin: 12px 0 24px;
+}
+
+.hero .intro {
+    max-width: 560px;
+    color: rgba(255,255,255,.72);
+    font-size: clamp(16px, 2.4vw, 20px);
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 28px;
+    padding: 16px 20px;
+    background: var(--hp-blue);
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.1px;
+    border-radius: 3px;
+}
+
+.hero-cta:hover,
+.hero-cta:focus-visible {
+    background: #2b90ff;
+    color: #fff;
+}
+
+.category {
+    margin-top: 0;
+}
+
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 46px 0 10px;
+    color: #fff;
+    opacity: 1;
+    font-size: 12px;
+    letter-spacing: 2.4px;
+}
+
+.category-title::before {
+    content: "/";
+    color: var(--hp-blue);
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.workout {
+    position: relative;
+    display: grid;
+    grid-template-columns: 56px minmax(0,1fr) auto;
+    gap: 18px;
+    align-items: center;
+    background: transparent !important;
+    border: 0 !important;
+    border-top: 1px solid var(--hp-line) !important;
+    border-radius: 0 !important;
+    padding: 24px 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+.workout:last-child {
+    border-bottom: 1px solid var(--hp-line) !important;
+}
+
+.workout::before {
+    content: attr(data-order);
+    color: rgba(255,255,255,.30);
+    font-size: 32px;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -1px;
+}
+
+.workout:hover,
+.workout:focus-visible {
+    background: rgba(255,255,255,.02) !important;
+    border-color: rgba(255,255,255,.30) !important;
+}
+
+.workout-name {
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.workout-meta {
+    color: var(--hp-muted) !important;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    margin-top: 10px;
+}
+
+.workout-button {
+    color: #fff !important;
+    font-size: 11px;
+    letter-spacing: 1.4px;
+    margin-top: 0 !important;
+    white-space: nowrap;
+    border-bottom: 3px solid var(--hp-blue);
+    padding-bottom: 5px;
+}
+
+.profile-box {
+    margin: 70px 0 32px !important;
+    padding: 34px 0 38px !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-top: 2px solid #fff !important;
+    border-bottom: 1px solid var(--hp-line) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.profile-box h2 {
+    margin: 0 0 10px;
+    font-size: clamp(36px, 7vw, 60px);
+    line-height: .9;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.profile-box p {
+    max-width: 520px;
+    color: rgba(255,255,255,.62) !important;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+#player-profile {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 18px !important;
+    margin-top: 28px !important;
+}
+
+#player-profile label {
+    margin-top: 12px !important;
+    font-size: 10px !important;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.78);
+}
+
+#player-profile select {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px !important;
+    background: #08111d !important;
+    border: 1px solid rgba(255,255,255,.28) !important;
+    border-radius: 3px;
+}
+
+#player-profile button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    min-width: 250px;
+    margin-top: 18px !important;
+    padding: 16px 20px !important;
+    background: var(--hp-blue) !important;
+    color: #fff !important;
+    border-radius: 3px;
+    letter-spacing: 1px;
+}
+
+#recommendation {
+    grid-column: 1 / -1;
+}
+
+.coming-soon {
+    margin-top: 36px;
+    border-top: 0;
+    color: rgba(255,255,255,.35);
+    text-transform: uppercase;
+}
+
+.lead-box {
+    margin-top: 24px;
+    background: transparent !important;
+    border: 1px solid var(--hp-line) !important;
+    box-shadow: none !important;
+}
+
+.home-button {
+    border: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,.35) !important;
+    border-radius: 0 !important;
+    padding: 8px 0 !important;
+}
+
+@media (max-width: 700px) {
+    .app { padding: 22px 20px 48px; }
+    .hero { margin-top: 40px; margin-bottom: 42px; }
+    .hero h1, h1 {
+        font-size: clamp(48px, 15vw, 58px);
+        line-height: .88;
+        letter-spacing: -3px;
+    }
+    .intro {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    .workout {
+        grid-template-columns: 42px minmax(0,1fr);
+        gap: 12px;
+        align-items: start;
+        padding: 22px 0 !important;
+    }
+    .workout::before {
+        font-size: 27px;
+    }
+    .workout-name {
+        font-size: 23px;
+        line-height: 1.02;
+    }
+    .workout-button {
+        grid-column: 2;
+        justify-self: start;
+        margin-top: 4px !important;
+    }
+    .profile-box {
+        margin-top: 54px !important;
+    }
+    .profile-box h2 {
+        font-size: 46px;
+    }
+    #player-profile { grid-template-columns: 1fr; }
+    #player-profile button,
+    #recommendation { grid-column: 1; }
+    #player-profile button { width: 100%; min-width: 0; }
+}
+
 </style>
 	
 </head>
@@ -651,13 +960,17 @@ body {
 
 	 <a class="home-button" href="https://hoopprint.com/">
 	    <span aria-hidden="true">←</span>
-	    BACK TO HOOPPRINT
+	    BACK TO HOOP-PRINT
 	</a>
+
+        <div class="practice-kicker">
+            <span>HOOP-PRINT</span><span class="slash">/</span><span>PRACTICE</span>
+        </div>
 
         <div class="hero">
 
             <div class="eyebrow">
-                BLUEPRINT VOLUME 1
+                AUDIO-GUIDED TRAINING
             </div>
 
             <h1>
@@ -666,9 +979,11 @@ body {
             </h1>
 
             <div class="intro">
-                Guided basketball workouts built for your training journey.
-                Put your earbuds in, press start, and start training!
+                Guided basketball workouts built to help you train with purpose.
+                Press play, put the phone down, and get to work.
             </div>
+
+            <a class="hero-cta" href="#player-profile">FIND MY WORKOUT →</a>
 
         </div>
 
@@ -682,6 +997,7 @@ body {
 
             <div
                 class="workout"
+                data-order="01"
                 data-title="60-Second Pull-Up Challenge"
                 data-category="SHOOTING"
                 data-meta="1 MIN · BALL + HOOP"
@@ -705,6 +1021,7 @@ body {
 
             <div
                 class="workout"
+                data-order="02"
                 data-title="Form Shooting Fundamentals"
                 data-category="SHOOTING"
                 data-meta="2 MIN · BALL + HOOP"
@@ -735,6 +1052,7 @@ body {
 
     <div
         class="workout"
+        data-order="03"
         data-title="Progressive Ball Handling"
         data-category="BALL HANDLING"
         data-meta="10 MIN · INTERMEDIATE · BALL"
@@ -759,7 +1077,7 @@ body {
 	
 <section class="profile-box">
     <h2>Find My Workout</h2>
-    <p>Tell us about your game and what you have available. We'll match you with a workout.</p>
+    <p>Tell us about your game and what you have available. We’ll match you with a workout.</p>
 
     <form id="player-profile">
 
@@ -795,30 +1113,30 @@ body {
             <option value="footwork">Footwork</option>
         </select>
 
-		<label for="equipment">Available Equipment</label>
-		<select id="equipment">
-		    <option value="none">No ball or basket</option>
-		    <option value="ball_only">Ball only</option>
-		    <option value="ball_basket" selected>Ball + Basket</option>
-		    <option value="ball_basket_partners">Ball + Basket + Partner(s)</option>
-		</select>
-		
-		<label for="music">What Do You Like to Train To? <span style="opacity:.5;">(Optional)</span></label>
-		<select id="music">
-		    <option value="">No preference</option>
-		    <option value="none">No music</option>
-		    <option value="hip_hop">Hip-Hop / Rap</option>
-		    <option value="r_and_b">R&amp;B</option>
-		    <option value="pop">Pop</option>
-		    <option value="rock">Rock</option>
-		    <option value="edm">EDM / Dance</option>
-		    <option value="afrobeats">Afrobeats</option>
-		    <option value="latin">Latin / Reggaeton</option>
-		    <option value="country">Country</option>
-		    <option value="indie">Alternative / Indie</option>
-		    <option value="other">Other</option>
-		</select>
-		
+        <label for="equipment">Available Equipment</label>
+        <select id="equipment">
+            <option value="none">No ball or basket</option>
+            <option value="ball_only">Ball only</option>
+            <option value="ball_basket" selected>Ball + Basket</option>
+            <option value="ball_basket_partners">Ball + Basket + Partner(s)</option>
+        </select>
+
+        <label for="music">What Do You Like to Train To? (Optional)</label>
+        <select id="music">
+            <option value="">No preference</option>
+            <option value="none">No music</option>
+            <option value="hip_hop">Hip-Hop / Rap</option>
+            <option value="r_and_b">R&amp;B</option>
+            <option value="pop">Pop</option>
+            <option value="rock">Rock</option>
+            <option value="edm">EDM / Dance</option>
+            <option value="afrobeats">Afrobeats</option>
+            <option value="latin">Latin / Reggaeton</option>
+            <option value="country">Country</option>
+            <option value="indie">Alternative / Indie</option>
+            <option value="other">Other</option>
+        </select>
+
         <button type="submit">FIND MY WORKOUT →</button>
     </form>
 
@@ -1487,14 +1805,14 @@ const workouts = {
 profileForm.addEventListener("submit", event => {
     event.preventDefault();
 
-	const profile = {
-	    position: document.getElementById("position").value,
-	    level: document.getElementById("level").value,
-	    style: document.getElementById("style").value,
-	    goal: document.getElementById("goal").value,
-	    equipment: document.getElementById("equipment").value,
-	    music: document.getElementById("music").value
-	};
+    const profile = {
+        position: document.getElementById("position").value,
+        level: document.getElementById("level").value,
+        style: document.getElementById("style").value,
+        goal: document.getElementById("goal").value,
+        equipment: document.getElementById("equipment").value,
+        music: document.getElementById("music").value
+    };
 
     localStorage.setItem(
         "hoopprint_player_profile",
