@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Form Shooting Fundamentals | Hoop-Print Practice</title>
+<meta name="description" content="Learn the Form Shooting Fundamentals, then train with Hoop-Print's audio-guided basketball workout.">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+    .brand-link {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    padding: 8px 0;
+}
+
+.brand-link:hover,
+.brand-link:focus {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+    .brand-link {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+}
+
+    
+body {
+    margin: 0;
+/*    background: #050505; */
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+    max-width: 560px;
+    margin: auto;
+    min-height: 100vh;
+    padding: 30px 22px 50px;
+}
+
+.hero {
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+.eyebrow {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    opacity: .5;
+}
+
+h1 {
+    font-size: clamp(42px, 11vw, 64px);
+    line-height: .9;
+    letter-spacing: -3px;
+    margin: 10px 0 18px;
+}
+
+.intro {
+    color: #999;
+    font-size: 16px;
+    line-height: 1.55;
+    max-width: 440px;
+}
+
+.category {
+    margin-top: 42px;
+}
+
+.category-title {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    opacity: .45;
+    margin-bottom: 12px;
+}
+
+.workout {
+    border: 1px solid #292929;
+    padding: 22px;
+    margin-bottom: 14px;
+    cursor: pointer;
+}
+
+.workout:hover {
+    border-color: #666;
+}
+
+.workout-name {
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+.workout-meta {
+    margin-top: 10px;
+    color: #777;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.workout-button {
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.coming-soon {
+    margin-top: 50px;
+    padding-top: 24px;
+    border-top: 1px solid #222;
+    color: #666;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+
+/* -----------------------------------
+   LEAD FORM
+----------------------------------- */
+
+.lead-box {
+    margin-top: 34px;
+    border: 1px solid #292929;
+    padding: 24px;
+}
+
+.lead-eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    opacity: .45;
+}
+
+.lead-title {
+    margin-top: 8px;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.lead-copy {
+    margin-top: 9px;
+    color: #999;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.lead-form {
+    margin-top: 20px;
+    display: flex;
+    gap: 8px;
+}
+
+.lead-input {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid #3a3a3a;
+    background: #0c0c0c;
+    color: #fff;
+    padding: 15px;
+    font-size: 16px;
+    outline: none;
+}
+
+.lead-input:focus {
+    border-color: #888;
+}
+
+.lead-submit {
+    border: 0;
+    background: #fff;
+    color: #000;
+    padding: 14px 16px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    cursor: pointer;
+}
+
+.lead-submit:disabled {
+    opacity: .5;
+    cursor: default;
+}
+
+.lead-note {
+    margin-top: 12px;
+    color: #555;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.lead-status {
+    min-height: 18px;
+    margin-top: 12px;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.lead-status.success {
+    color: #fff;
+}
+
+@media (max-width: 480px) {
+    .lead-form {
+        flex-direction: column;
+    }
+
+    .lead-submit {
+        min-height: 48px;
+    }
+}
+
+
+/* -----------------------------------
+   PLAYER
+----------------------------------- */
+
+.player-screen {
+    display: none;
+    min-height: 85vh;
+    flex-direction: column;
+}
+
+.back-button {
+    background: none;
+    border: 0;
+    color: #888;
+    text-align: left;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.player-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-category {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    opacity: .45;
+}
+
+.player-title {
+    margin: 10px 0 12px;
+    font-size: clamp(38px, 10vw, 56px);
+    line-height: .95;
+    letter-spacing: -2px;
+}
+
+.player-meta {
+    color: #777;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.instructions {
+    margin-top: 30px;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.audio-player {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.seek-bar {
+    width: 100%;
+    cursor: pointer;
+}
+
+.time-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    color: #777;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 30px;
+}
+
+.play-button {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 0;
+    background: #fff;
+    color: #000;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.skip-button {
+    min-width: 64px;
+    min-height: 48px;
+    border: 1px solid #333;
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.skip-button:active,
+.play-button:active {
+    transform: scale(.96);
+}
+
+.status {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    opacity: .55;
+}
+
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    opacity: .25;
+}
+.profile-box {
+    margin: 32px 0 48px;
+    padding: 24px;
+    border: 1px solid #333;
+}
+
+.profile-box h2 {
+    margin: 0 0 8px;
+    font-size: 24px;
+}
+
+.profile-box p {
+    color: #999;
+    font-size: 14px;
+}
+
+#player-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+#player-profile label {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#player-profile select {
+    padding: 14px;
+    background: #111;
+    color: #fff;
+    border: 1px solid #444;
+    font-size: 16px;
+}
+
+#player-profile button {
+    margin-top: 20px;
+    padding: 17px;
+    background: #fff;
+    color: #000;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+#recommendation {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    line-height: 1.6;
+}
+
+#recommendation button {
+    margin-top: 12px;
+    padding: 14px;
+    background: white;
+    color: black;
+    border: 0;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+	.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 12px 18px;
+
+    background: transparent;
+    color: #ffffff;
+
+    border: 1px solid #555555;
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    min-height: 44px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.home-button:hover {
+    background: #1a1a1a;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.home-button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .home-button {
+        font-size: 11px;
+        padding: 12px 14px;
+    }
+}
+
+
+/* -----------------------------------
+   HOOP-PRINT WORKOUT MODULES
+   Blueprint Card Styling
+----------------------------------- */
+
+.workout {
+    background: rgba(5, 17, 35, 0.92);
+    border: 1px solid rgba(112, 173, 255, 0.45);
+    border-radius: 6px;
+
+    padding: 24px;
+    margin-bottom: 16px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.25);
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.workout:hover,
+.workout:focus-visible {
+    background: rgba(14, 38, 70, 0.96);
+    border-color: #72aaf5;
+
+    box-shadow:
+        0 0 20px rgba(67, 143, 255, 0.18);
+}
+
+.workout-name {
+    color: #ffffff;
+}
+
+.workout-meta {
+    color: #a8c7ee;
+}
+
+.workout-button {
+    color: #80b7ff;
+}
+
+/* Mobile Optimization */
+
+@media (max-width: 600px) {
+    .workout {
+        padding: 22px 20px;
+        margin-bottom: 18px;
+        border: 1.5px solid rgba(112, 173, 255, 0.65);
+        background: rgba(5, 17, 35, 0.96);
+    }
+
+    .workout-name {
+        grid-column: 2;
+        grid-row: 1;
+        font-size: 23px;
+        line-height: 1.15;
+    }
+
+    .workout-button {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+}
+
+
+/* -----------------------------------
+   HOOP-PRINT SECONDARY PANELS
+   Player Profile + Lead Form
+----------------------------------- */
+
+.profile-box,
+.lead-box {
+    background: rgba(4, 13, 26, 0.82);
+
+    border: 1px solid rgba(112, 173, 255, 0.18);
+
+    border-radius: 6px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Player Profile */
+
+.profile-box h2 {
+    color: #ffffff;
+}
+
+.profile-box p {
+    color: #a5afbd;
+}
+
+/* Lead Form */
+
+.lead-title {
+    color: #ffffff;
+}
+
+.lead-copy {
+    color: #a5afbd;
+}
+
+/* Subtle input styling */
+
+#player-profile select,
+.lead-input {
+    background: rgba(3, 10, 20, 0.95);
+    border: 1px solid rgba(112, 173, 255, 0.22);
+    color: #ffffff;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .profile-box,
+    .lead-box {
+        padding: 22px 18px;
+        background: rgba(4, 13, 26, 0.9);
+    }
+}
+
+	
+	
+
+
+/* ===================================
+   HOOP-PRINT PRACTICE — PERFORMANCE LAB
+   Visual refresh
+=================================== */
+:root {
+    --hp-blue: #0b7cff;
+    --hp-blue-soft: #8fc2ff;
+    --hp-bg: #07111f;
+    --hp-panel: rgba(3, 10, 20, 0.72);
+    --hp-line: rgba(255,255,255,.16);
+    --hp-muted: rgba(255,255,255,.58);
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    isolation: isolate;
+
+    /* Blueprint environment stays continuous across the whole page */
+    background-color: #040b14;
+    background-image:
+        linear-gradient(
+            rgba(67, 143, 255, 0.08) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(67, 143, 255, 0.08) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle at 62% 18%,
+            rgba(16, 54, 96, 0.42) 0%,
+            rgba(8, 28, 52, 0.26) 38%,
+            rgba(4, 11, 20, 0) 72%
+        );
+
+    background-size:
+        40px 40px,
+        40px 40px,
+        100% 100%;
+
+    background-repeat:
+        repeat,
+        repeat,
+        no-repeat;
+
+    background-attachment: fixed;
+}
+
+/* Full-screen hoop atmosphere — no rectangular hero edge */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+
+    background-image: url("images/Practice_Hero_Basketball_Blueprint.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    opacity: 0.64;
+}
+
+/* Blend the photo into the Blueprint environment */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2, 8, 15, 0.94) 0%,
+            rgba(2, 8, 15, 0.80) 34%,
+            rgba(2, 8, 15, 0.42) 68%,
+            rgba(2, 8, 15, 0.20) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(2, 8, 15, 0.10) 0%,
+            rgba(2, 8, 15, 0.18) 45%,
+            rgba(2, 8, 15, 0.70) 78%,
+            rgba(2, 8, 15, 0.92) 100%
+        );
+}
+
+.app {
+    position: relative;
+    z-index: 1;
+    width: min(1180px, calc(100% - 48px));
+    max-width: 1180px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 30px 0 60px;
+    background: transparent;
+}
+
+.practice-kicker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+}
+
+.practice-kicker .slash {
+    color: var(--hp-blue);
+    font-size: 18px;
+}
+
+.hero {
+    position: relative;
+    min-height: 620px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px 0 60px;
+    background: transparent;
+}
+
+.hero h1,
+h1 {
+    font-size: clamp(54px, 10vw, 92px);
+    line-height: .88;
+    letter-spacing: -4px;
+    text-transform: uppercase;
+    margin: 12px 0 24px;
+}
+
+.hero .intro {
+    max-width: 560px;
+    color: rgba(255,255,255,.72);
+    font-size: clamp(16px, 2.4vw, 20px);
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 28px;
+    padding: 16px 20px;
+    background: var(--hp-blue);
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.1px;
+    border-radius: 3px;
+}
+
+.hero-cta:hover,
+.hero-cta:focus-visible {
+    background: #2b90ff;
+    color: #fff;
+}
+
+.category {
+    margin-top: 0;
+}
+
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 46px 0 10px;
+    color: #fff;
+    opacity: 1;
+    font-size: 12px;
+    letter-spacing: 2.4px;
+}
+
+.category-title::before {
+    content: "/";
+    color: var(--hp-blue);
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.workout {
+    position: relative;
+    display: grid;
+    grid-template-columns: 56px minmax(0,1fr) auto;
+    gap: 18px;
+    align-items: center;
+    background: transparent !important;
+    border: 0 !important;
+    border-top: 1px solid var(--hp-line) !important;
+    border-radius: 0 !important;
+    padding: 24px 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+.workout:last-child {
+    border-bottom: 1px solid var(--hp-line) !important;
+}
+
+.workout::before {
+    content: attr(data-order);
+    color: rgba(255,255,255,.30);
+    font-size: 32px;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -1px;
+}
+
+.workout:hover,
+.workout:focus-visible {
+    background: rgba(255,255,255,.02) !important;
+    border-color: rgba(255,255,255,.30) !important;
+}
+
+.workout-name {
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.workout-meta {
+    color: var(--hp-muted) !important;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    margin-top: 10px;
+}
+
+.workout-button {
+    color: #fff !important;
+    font-size: 11px;
+    letter-spacing: 1.4px;
+    margin-top: 0 !important;
+    white-space: nowrap;
+    border-bottom: 3px solid var(--hp-blue);
+    padding-bottom: 5px;
+}
+
+.workout::before {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.workout-name {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.workout-meta {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 0 !important;
+}
+
+.workout-button {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    align-self: center;
+}
+
+.profile-box {
+    margin: 70px 0 32px !important;
+    padding: 34px 0 38px !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-top: 2px solid #fff !important;
+    border-bottom: 1px solid var(--hp-line) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.profile-box h2 {
+    margin: 0 0 10px;
+    font-size: clamp(36px, 7vw, 60px);
+    line-height: .9;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.profile-box p {
+    max-width: 520px;
+    color: rgba(255,255,255,.62) !important;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+#player-profile {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 18px !important;
+    margin-top: 28px !important;
+}
+
+#player-profile label {
+    margin-top: 12px !important;
+    font-size: 10px !important;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.78);
+}
+
+#player-profile select {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px !important;
+    background: #08111d !important;
+    border: 1px solid rgba(255,255,255,.28) !important;
+    border-radius: 3px;
+}
+
+#player-profile button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    min-width: 250px;
+    margin-top: 18px !important;
+    padding: 16px 20px !important;
+    background: var(--hp-blue) !important;
+    color: #fff !important;
+    border-radius: 3px;
+    letter-spacing: 1px;
+}
+
+#recommendation {
+    grid-column: 1 / -1;
+}
+
+.coming-soon {
+    margin-top: 36px;
+    border-top: 0;
+    color: rgba(255,255,255,.35);
+    text-transform: uppercase;
+}
+
+.lead-box {
+    margin-top: 24px;
+    background: transparent !important;
+    border: 1px solid var(--hp-line) !important;
+    box-shadow: none !important;
+}
+
+.home-button {
+    border: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,.35) !important;
+    border-radius: 0 !important;
+    padding: 8px 0 !important;
+}
+
+@media (max-width: 700px) {
+    body::before {
+        background-size: auto 100vh;
+        background-position: 60% top;
+        opacity: 0.56;
+    }
+
+
+    .app {
+        width: calc(100% - 36px);
+        padding: 18px 0 48px;
+    }
+    .hero { margin-top: 40px; margin-bottom: 42px; }
+    .hero h1, h1 {
+        font-size: clamp(48px, 15vw, 58px);
+        line-height: .88;
+        letter-spacing: -3px;
+    }
+    .intro {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    .workout {
+        grid-template-columns: 42px minmax(0,1fr);
+        grid-template-rows: auto auto auto;
+        gap: 12px;
+        align-items: start;
+        padding: 22px 0 !important;
+    }
+    .workout::before {
+        grid-column: 1;
+        grid-row: 1 / 4;
+        font-size: 27px;
+    }
+    .workout-name {
+        font-size: 23px;
+        line-height: 1.02;
+    }
+    .workout-meta {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    .workout-button {
+        grid-column: 2;
+        grid-row: 3;
+        justify-self: start;
+        margin-top: 4px !important;
+    }
+    .profile-box {
+        margin-top: 54px !important;
+    }
+    .profile-box h2 {
+        font-size: 46px;
+    }
+    #player-profile { grid-template-columns: 1fr; }
+    #player-profile button,
+    #recommendation { grid-column: 1; }
+    #player-profile button { width: 100%; min-width: 0; }
+}
+
+
+.workout-detail{max-width:850px;margin:0 auto;padding-top:30px}
+.detail-eyebrow{font-size:12px;font-weight:900;letter-spacing:2px;color:#8fc2ff;margin:35px 0 12px}
+.detail-title{font-size:clamp(44px,8vw,76px);line-height:.92;letter-spacing:-3px;text-transform:uppercase;margin:0 0 18px}
+.detail-meta{font-size:12px;letter-spacing:1.4px;color:#aabbd1;font-weight:800;margin-bottom:34px}
+.detail-section{border-top:1px solid rgba(255,255,255,.2);padding-top:25px;margin-top:35px}
+.detail-section h2{font-size:clamp(23px,4vw,34px);letter-spacing:-1px;text-transform:uppercase;margin:0 0 12px}
+.detail-copy{color:#b8c4d5;line-height:1.6;max-width:640px}
+.video-shell{aspect-ratio:16/9;background:#081526;border:1px solid #385473;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;border-radius:5px}
+.video-shell iframe{width:100%;height:100%;border:0}
+.video-placeholder{padding:25px;color:#c0cde0;line-height:1.6}
+.video-placeholder strong{display:block;color:#fff;font-size:19px}
+.audio-player{margin-top:28px}
+.player-content{display:block}
+.audio-controls{margin-top:24px}
+.status{margin-bottom:20px}
+.detail-footer{margin:60px 0 10px;text-align:center;font-size:11px;letter-spacing:2px;color:#7d8ba1}
+@media(max-width:600px){.workout-detail{padding-top:18px}.detail-title{letter-spacing:-2px}.play-button{width:96px;height:96px}}
+</style></head>
+<body><main class="app"><div class="workout-detail">
+<a class="home-button" href="practice.html">← ALL WORKOUTS</a>
+<div class="detail-eyebrow">HOOP-PRINT / PRACTICE / SHOOTING 02</div>
+<h1 class="detail-title">Form Shooting<br>Fundamentals</h1>
+<div class="detail-meta">2 MIN · BALL + HOOP · AUDIO-GUIDED</div>
+<section class="detail-section" aria-labelledby="demo-title">
+<h2 id="demo-title">01 / Watch the demo</h2>
+<p class="detail-copy">Watch the movement first. Then put your phone down and follow your coach's audio cues.</p>
+<div class="video-shell" id="video-shell"><div class="video-placeholder"><strong>Video demonstration coming soon</strong>Add your YouTube video ID in the <code>YOUTUBE_VIDEO_ID</code> setting to activate the embedded video.</div></div>
+</section>
+<section class="detail-section" aria-labelledby="train-title">
+<h2 id="train-title">02 / Start your workout</h2>
+<p class="detail-copy">Put your earbuds in. Press play and put your phone away. Your coach takes it from here.</p>
+<div class="audio-player">
+<input type="range" id="seek-bar" class="seek-bar" min="0" max="100" value="0" step="0.1" aria-label="Workout progress">
+<div class="time-row"><span id="current-time">0:00</span><span id="duration">0:00</span></div>
+<div class="audio-controls"><button class="skip-button" id="rewind-button" aria-label="Rewind 10 seconds">↶ 10</button><button class="play-button" id="play-button" aria-label="Play workout">▶</button><button class="skip-button" id="forward-button" aria-label="Fast forward 10 seconds">10 ↷</button></div>
+<div class="status" id="status" role="status">START WORKOUT</div>
+</div></section><div class="detail-footer">YOUR GAME. YOUR BLUEPRINT.</div>
+</div></main>
+<audio id="coach-audio" preload="metadata" src="audio/Drill_2_form_shooting_fundamentals.mp3"></audio>
+<script>
+// YouTube demonstration video ID.
+const YOUTUBE_VIDEO_ID = "t7ciq_x4138";
+const videoShell = document.getElementById('video-shell');
+if (/^[a-zA-Z0-9_-]{11}$/.test(YOUTUBE_VIDEO_ID)) {
+  const iframe = document.createElement('iframe');
+  iframe.src = 'https://www.youtube-nocookie.com/embed/' + YOUTUBE_VIDEO_ID;
+  iframe.title = 'Form Shooting Fundamentals demonstration';
+  iframe.loading = 'lazy';
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+  iframe.allowFullscreen = true;
+  videoShell.replaceChildren(iframe);
+}
+const audio = document.getElementById('coach-audio');
+const playButton = document.getElementById('play-button');
+const seekBar = document.getElementById('seek-bar');
+const status = document.getElementById('status');
+const currentTimeDisplay = document.getElementById('current-time');
+const durationDisplay = document.getElementById('duration');
+function formatTime(seconds) { if (!Number.isFinite(seconds)) return '0:00'; return Math.floor(seconds/60)+':'+String(Math.floor(seconds%60)).padStart(2,'0'); }
+playButton.addEventListener('click',async()=>{
+  try { if(audio.paused){
+    // Stop the demonstration before audio coaching starts.
+    const frame = videoShell.querySelector('iframe');
+    if(frame) frame.src = frame.src;
+    await audio.play();
+  } else audio.pause(); }
+  catch(error){ console.error(error);status.textContent='AUDIO ERROR — CHECK MP3 FILE'; }
+});
+document.getElementById('rewind-button').addEventListener('click',()=>{audio.currentTime=Math.max(0,audio.currentTime-10)});
+document.getElementById('forward-button').addEventListener('click',()=>{if(Number.isFinite(audio.duration)) audio.currentTime=Math.min(audio.duration,audio.currentTime+10)});
+seekBar.addEventListener('input',()=>{if(Number.isFinite(audio.duration)&&audio.duration>0) audio.currentTime=(Number(seekBar.value)/100)*audio.duration});
+audio.addEventListener('loadedmetadata',()=>{durationDisplay.textContent=formatTime(audio.duration)});
+audio.addEventListener('timeupdate',()=>{currentTimeDisplay.textContent=formatTime(audio.currentTime);if(Number.isFinite(audio.duration)&&audio.duration>0)seekBar.value=(audio.currentTime/audio.duration)*100});
+audio.addEventListener('play',()=>{playButton.textContent='Ⅱ';playButton.setAttribute('aria-label','Pause workout');status.textContent='WORKOUT IN PROGRESS'});
+audio.addEventListener('pause',()=>{if(!audio.ended){playButton.textContent='▶';playButton.setAttribute('aria-label','Play workout');status.textContent='PAUSED'}});
+audio.addEventListener('ended',()=>{playButton.textContent='✓';status.textContent='BLUEPRINT COMPLETE';seekBar.value=100;currentTimeDisplay.textContent=formatTime(audio.duration)});
+</script></body></html>
