@@ -1076,6 +1076,7 @@ h1 {
             <div
                 class="workout"
                 data-order="01"
+                data-page="pull-up-challenge.html"
                 data-title="60-Second Pull-Up Challenge"
                 data-category="SHOOTING"
                 data-meta="1 MIN · BALL + HOOP"
@@ -1507,6 +1508,11 @@ document
         workout.addEventListener(
             "click",
             () => {
+
+                if (workout.dataset.page) {
+                    window.location.href = workout.dataset.page;
+                    return;
+                }
 
                 audio.pause();
                 audio.currentTime = 0;
