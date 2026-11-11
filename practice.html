@@ -1028,78 +1028,84 @@ h1 {
 
 
 /* -----------------------------------
-   COACH VOICE PREVIEWS
+   COACH VOICE PREVIEWS — EDITORIAL ROWS
 ----------------------------------- */
 .coach-previews {
-    margin-top: 30px;
-    max-width: 680px;
+    margin-top: 34px;
+    width: min(100%, 720px);
 }
 .coach-previews-heading {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 900;
-    letter-spacing: 2px;
-    color: #9eb8d5;
-    margin-bottom: 14px;
+    letter-spacing: 2.2px;
+    color: #a6c1df;
+    margin-bottom: 10px;
 }
 .coach-preview-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    column-gap: 32px;
 }
-.coach-preview-card {
+.coach-preview-card,
+.coach-preview-card--female {
     display: flex;
     align-items: center;
-    gap: 14px;
     min-width: 0;
-    padding: 18px;
-    border: 1px solid rgba(126, 170, 220, .28);
-    background: rgba(5, 20, 39, .82);
-    border-radius: 12px;
-    backdrop-filter: blur(6px);
-}
-.coach-preview-card--female {
-    background: rgba(29, 15, 51, .75);
-    border-color: rgba(185, 120, 245, .3);
+    gap: 17px;
+    padding: 21px 0;
+    background: none;
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,.23);
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
 }
 .coach-preview-play {
-    flex: 0 0 66px;
-    width: 66px;
-    height: 66px;
+    flex: 0 0 62px;
+    width: 62px;
+    height: 62px;
     display: grid;
     place-items: center;
     border: 0;
     border-radius: 50%;
     color: #fff;
-    cursor: pointer;
-    font-size: 24px;
+    font-size: 23px;
     line-height: 1;
-    background: linear-gradient(135deg, #075cff 4%, #2eafff 56%, #9aeaff 100%);
-    box-shadow: 0 5px 23px rgba(28, 135, 255, .3), inset 0 1px 2px rgba(255,255,255,.4);
-    transition: transform .2s ease, box-shadow .2s ease;
+    cursor: pointer;
+    background: linear-gradient(140deg, #0a62e8, #329dff 58%, #8cddff);
+    box-shadow: none;
+    transition: transform .18s ease, filter .18s ease;
 }
 .coach-preview-card--female .coach-preview-play {
-    background: linear-gradient(135deg, #6222c8 0%, #a94bed 58%, #e7abff 100%);
-    box-shadow: 0 5px 23px rgba(164, 76, 237, .27), inset 0 1px 2px rgba(255,255,255,.4);
+    background: linear-gradient(140deg, #6c2dba, #a44be3 58%, #d597f4);
+    box-shadow: none;
 }
-.coach-preview-play:hover { transform: scale(1.06); }
+.coach-preview-play:hover { transform: scale(1.045); filter: brightness(1.1); }
 .coach-preview-play:active { transform: scale(.96); }
-.coach-preview-play:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
-.coach-preview-play[aria-pressed="true"] { box-shadow: 0 0 0 5px rgba(91, 184, 255, .16), 0 6px 26px rgba(28,135,255,.46); }
-.coach-preview-card--female .coach-preview-play[aria-pressed="true"] { box-shadow: 0 0 0 5px rgba(192, 117, 255, .18), 0 6px 26px rgba(164,76,237,.45); }
+.coach-preview-play:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.coach-preview-play[aria-pressed="true"],
+.coach-preview-card--female .coach-preview-play[aria-pressed="true"] { box-shadow: none; }
 .coach-preview-copy { min-width: 0; }
-.coach-preview-name { font-size: 15px; font-weight: 900; color: #fff; }
-.coach-preview-type { margin-top: 5px; font-size: 10px; font-weight: 800; letter-spacing: 1.2px; color: #a3b6cf; }
-.coach-preview-status { margin-top: 9px; font-size: 11px; font-weight: 800; color: #80caff; }
-.coach-preview-card--female .coach-preview-status { color: #d9a6ff; }
-.coach-preview-tagline { margin-top: 14px; font-size: 10px; font-weight: 800; letter-spacing: 1.6px; color: rgba(255,255,255,.5); }
+.coach-preview-name { font-size: clamp(17px, 2vw, 20px); font-weight: 800; color: #fff; line-height: 1.2; }
+.coach-preview-type { margin-top: 5px; font-size: 10px; font-weight: 700; letter-spacing: 1.6px; color: #96abc1; }
+.coach-preview-status { margin-top: 9px; font-size: 10px; font-weight: 800; letter-spacing: .6px; color: #82c8ff; }
+.coach-preview-card--female .coach-preview-status { color: #d1a0f5; }
+.coach-preview-tagline { margin-top: 2px; font-size: 11px; font-weight: 500; letter-spacing: .1px; color: rgba(255,255,255,.48); }
+/* Give the waitlist greater priority than the workout finder. */
+.lead-box { margin-top: 68px !important; padding: 30px 0 38px !important; border: 0 !important; border-top: 2px solid #fff !important; border-bottom: 1px solid var(--hp-line) !important; }
+.lead-eyebrow { color: #8fc2ff; opacity: 1; }
+.lead-title { font-size: clamp(28px, 4.5vw, 44px); line-height: 1; text-transform: uppercase; letter-spacing: -1.6px; }
+.lead-submit { background: var(--hp-blue); color: #fff; min-height: 49px; }
+.lead-submit:hover { background: #2b90ff; }
+.profile-box { margin-top: 46px !important; }
 @media (max-width: 610px) {
     .coach-preview-grid { grid-template-columns: 1fr; }
-    .coach-preview-card { padding: 14px 16px; }
-    .coach-preview-play { width: 58px; height: 58px; flex-basis: 58px; }
+    .coach-preview-card, .coach-preview-card--female { padding: 16px 0; gap: 15px; }
+    .coach-preview-card + .coach-preview-card { border-top-color: rgba(255,255,255,.13); }
+    .coach-preview-play { width: 56px; height: 56px; flex-basis: 56px; }
+    .lead-box { margin-top: 46px !important; }
 }
-@media (prefers-reduced-motion: reduce) {
-    .coach-preview-play { transition: none; }
-}
+@media (prefers-reduced-motion: reduce) { .coach-preview-play { transition: none; } }
 
 </style>
 	
@@ -1263,6 +1269,59 @@ h1 {
 
 </section>
 
+        <!-- EMAIL CAPTURE -->
+        <section class="lead-box" id = "lead-signup">
+
+            <div class="lead-eyebrow">
+                JOIN HOOP-PRINT
+            </div>
+
+            <div class="lead-title">
+                Begin your Training Journey
+            </div>
+
+            <div class="lead-copy">
+                Unlock the full Volume 1 Blueprint
+            </div>
+
+            <form
+                class="lead-form"
+                id="lead-form"
+            >
+
+                <input
+                    class="lead-input"
+                    id="lead-email"
+                    type="email"
+                    placeholder="you@email.com"
+                    autocomplete="email"
+                    required
+                    aria-label="Email address"
+                >
+
+                <button
+                    class="lead-submit"
+                    id="lead-submit"
+                    type="submit"
+                >
+                    JOIN WAITLIST →
+                </button>
+
+            </form>
+
+            <div
+                class="lead-status"
+                id="lead-status"
+                aria-live="polite"
+            ></div>
+
+            <div class="lead-note">
+                By submitting, you agree to receive Hoop-Print
+                workout and product updates. Unsubscribe anytime.
+            </div>
+
+        </section>
+
 	<!-- Player Profile  -->
 	
 <section class="profile-box">
@@ -1339,58 +1398,7 @@ h1 {
         </div>
 
 
-        <!-- EMAIL CAPTURE -->
-        <section class="lead-box" id = "lead-signup">
 
-            <div class="lead-eyebrow">
-                JOIN HOOP-PRINT
-            </div>
-
-            <div class="lead-title">
-                Begin your Training Journey
-            </div>
-
-            <div class="lead-copy">
-                Unlock the full Volume 1 Blueprint
-            </div>
-
-            <form
-                class="lead-form"
-                id="lead-form"
-            >
-
-                <input
-                    class="lead-input"
-                    id="lead-email"
-                    type="email"
-                    placeholder="you@email.com"
-                    autocomplete="email"
-                    required
-                    aria-label="Email address"
-                >
-
-                <button
-                    class="lead-submit"
-                    id="lead-submit"
-                    type="submit"
-                >
-                    JOIN WAITLIST →
-                </button>
-
-            </form>
-
-            <div
-                class="lead-status"
-                id="lead-status"
-                aria-live="polite"
-            ></div>
-
-            <div class="lead-note">
-                By submitting, you agree to receive Hoop-Print
-                workout and product updates. Unsubscribe anytime.
-            </div>
-
-        </section>
 
 
         <div class="footer">
