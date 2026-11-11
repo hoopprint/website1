@@ -18,11 +18,13 @@
 <title>Hoop-Print Practice Now</title>
 
 <style>
+/* HOOP-PRINT PRACTICE — consolidated CSS; original responsive styling retained */
+
 * {
     box-sizing: border-box;
 }
 
-    .brand-link {
+.brand-link {
     display: inline-block;
     color: #ffffff;
     text-decoration: none;
@@ -47,26 +49,6 @@
     }
 }
 
-    
-body {
-    margin: 0;
-/*    background: #050505; */
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.app {
-    max-width: 560px;
-    margin: auto;
-    min-height: 100vh;
-    padding: 30px 22px 50px;
-}
-
-.hero {
-    margin-top: 48px;
-    margin-bottom: 48px;
-}
-
 .eyebrow {
     font-size: 12px;
     font-weight: 800;
@@ -88,90 +70,8 @@ h1 {
     max-width: 440px;
 }
 
-.category {
-    margin-top: 42px;
-}
-
-.category-title {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    opacity: .45;
-    margin-bottom: 12px;
-}
-
-.workout {
-    border: 1px solid #292929;
-    padding: 22px;
-    margin-bottom: 14px;
-    cursor: pointer;
-}
-
 .workout:hover {
     border-color: #666;
-}
-
-.workout-name {
-    font-size: 23px;
-    font-weight: 800;
-    line-height: 1.05;
-}
-
-.workout-meta {
-    margin-top: 10px;
-    color: #777;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.workout-button {
-    margin-top: 20px;
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.coming-soon {
-    margin-top: 50px;
-    padding-top: 24px;
-    border-top: 1px solid #222;
-    color: #666;
-    font-size: 12px;
-    letter-spacing: 1px;
-}
-
-
-/* -----------------------------------
-   LEAD FORM
------------------------------------ */
-
-.lead-box {
-    margin-top: 34px;
-    border: 1px solid #292929;
-    padding: 24px;
-}
-
-.lead-eyebrow {
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    opacity: .45;
-}
-
-.lead-title {
-    margin-top: 8px;
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -1px;
-}
-
-.lead-copy {
-    margin-top: 9px;
-    color: #999;
-    font-size: 14px;
-    line-height: 1.5;
 }
 
 .lead-form {
@@ -193,17 +93,6 @@ h1 {
 
 .lead-input:focus {
     border-color: #888;
-}
-
-.lead-submit {
-    border: 0;
-    background: #fff;
-    color: #000;
-    padding: 14px 16px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: .5px;
-    cursor: pointer;
 }
 
 .lead-submit:disabled {
@@ -238,11 +127,6 @@ h1 {
         min-height: 48px;
     }
 }
-
-
-/* -----------------------------------
-   PLAYER
------------------------------------ */
 
 .player-screen {
     display: none;
@@ -368,59 +252,6 @@ h1 {
     letter-spacing: 2px;
     opacity: .25;
 }
-.profile-box {
-    margin: 32px 0 48px;
-    padding: 24px;
-    border: 1px solid #333;
-}
-
-.profile-box h2 {
-    margin: 0 0 8px;
-    font-size: 24px;
-}
-
-.profile-box p {
-    color: #999;
-    font-size: 14px;
-}
-
-#player-profile {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 24px;
-}
-
-#player-profile label {
-    margin-top: 8px;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-#player-profile select {
-    padding: 14px;
-    background: #111;
-    color: #fff;
-    border: 1px solid #444;
-    font-size: 16px;
-}
-
-#player-profile button {
-    margin-top: 20px;
-    padding: 17px;
-    background: #fff;
-    color: #000;
-    border: none;
-    font-weight: 800;
-    cursor: pointer;
-}
-
-#recommendation {
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid #333;
-    line-height: 1.6;
-}
 
 #recommendation button {
     margin-top: 12px;
@@ -430,29 +261,6 @@ h1 {
     border: 0;
     font-weight: 800;
     cursor: pointer;
-}
-
-	.home-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    padding: 12px 18px;
-
-    background: transparent;
-    color: #ffffff;
-
-    border: 1px solid #555555;
-    border-radius: 8px;
-
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1px;
-
-    min-height: 44px;
-    transition: background 0.2s, border-color 0.2s;
 }
 
 .home-button:hover {
@@ -472,54 +280,6 @@ h1 {
         padding: 12px 14px;
     }
 }
-
-
-/* -----------------------------------
-   HOOP-PRINT WORKOUT MODULES
-   Blueprint Card Styling
------------------------------------ */
-
-.workout {
-    background: rgba(5, 17, 35, 0.92);
-    border: 1px solid rgba(112, 173, 255, 0.45);
-    border-radius: 6px;
-
-    padding: 24px;
-    margin-bottom: 16px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.25);
-
-    transition:
-        border-color 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.workout:hover,
-.workout:focus-visible {
-    background: rgba(14, 38, 70, 0.96);
-    border-color: #72aaf5;
-
-    box-shadow:
-        0 0 20px rgba(67, 143, 255, 0.18);
-}
-
-.workout-name {
-    color: #ffffff;
-}
-
-.workout-meta {
-    color: #a8c7ee;
-}
-
-.workout-button {
-    color: #80b7ff;
-}
-
-/* Mobile Optimization */
 
 @media (max-width: 600px) {
     .workout {
@@ -542,47 +302,21 @@ h1 {
     }
 }
 
-
-/* -----------------------------------
-   HOOP-PRINT SECONDARY PANELS
-   Player Profile + Lead Form
------------------------------------ */
-
 .profile-box,
 .lead-box {
     background: rgba(4, 13, 26, 0.82);
-
     border: 1px solid rgba(112, 173, 255, 0.18);
-
     border-radius: 6px;
-
     padding: 24px;
-
-    box-shadow:
-        0 4px 18px rgba(0, 0, 0, 0.12);
-}
-
-/* Player Profile */
-
-.profile-box h2 {
-    color: #ffffff;
-}
-
-.profile-box p {
-    color: #a5afbd;
-}
-
-/* Lead Form */
-
-.lead-title {
-    color: #ffffff;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
 }
 
 .lead-copy {
+    margin-top: 9px;
     color: #a5afbd;
+    font-size: 14px;
+    line-height: 1.5;
 }
-
-/* Subtle input styling */
 
 #player-profile select,
 .lead-input {
@@ -590,8 +324,6 @@ h1 {
     border: 1px solid rgba(112, 173, 255, 0.22);
     color: #ffffff;
 }
-
-/* Mobile */
 
 @media (max-width: 600px) {
     .profile-box,
@@ -601,14 +333,6 @@ h1 {
     }
 }
 
-	
-	
-
-
-/* ===================================
-   HOOP-PRINT PRACTICE — PERFORMANCE LAB
-   Visual refresh
-=================================== */
 :root {
     --hp-blue: #0b7cff;
     --hp-blue-soft: #8fc2ff;
@@ -629,11 +353,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
     isolation: isolate;
-
-    /* Blueprint environment stays continuous across the whole page */
     background-color: #040b14;
-    background-image:
-        linear-gradient(
+    background-image: linear-gradient(
             rgba(67, 143, 255, 0.08) 1px,
             transparent 1px
         ),
@@ -648,46 +369,35 @@ body {
             rgba(8, 28, 52, 0.26) 38%,
             rgba(4, 11, 20, 0) 72%
         );
-
-    background-size:
-        40px 40px,
+    background-size: 40px 40px,
         40px 40px,
         100% 100%;
-
-    background-repeat:
-        repeat,
+    background-repeat: repeat,
         repeat,
         no-repeat;
-
     background-attachment: fixed;
 }
 
-/* Full-screen hoop atmosphere — no rectangular hero edge */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -2;
     pointer-events: none;
-
     background-image: url("images/Practice_Hero_Basketball_Blueprint.png");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
-
     opacity: 0.64;
 }
 
-/* Blend the photo into the Blueprint environment */
 body::after {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -1;
     pointer-events: none;
-
-    background:
-        linear-gradient(
+    background: linear-gradient(
             90deg,
             rgba(2, 8, 15, 0.94) 0%,
             rgba(2, 8, 15, 0.80) 34%,
@@ -704,13 +414,13 @@ body::after {
 }
 
 .app {
-    position: relative;
-    z-index: 1;
-    width: min(1180px, calc(100% - 48px));
     max-width: 1180px;
     margin: 0 auto;
     min-height: 100vh;
     padding: 30px 0 60px;
+    position: relative;
+    z-index: 1;
+    width: min(1180px, calc(100% - 48px));
     background: transparent;
 }
 
@@ -731,6 +441,8 @@ body::after {
 }
 
 .hero {
+    margin-top: 48px;
+    margin-bottom: 48px;
     position: relative;
     min-height: 620px;
     display: flex;
@@ -781,14 +493,16 @@ h1 {
 }
 
 .category-title {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2.4px;
+    opacity: 1;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 12px;
     margin: 46px 0 10px;
     color: #fff;
-    opacity: 1;
-    font-size: 12px;
-    letter-spacing: 2.4px;
 }
 
 .category-title::before {
@@ -799,22 +513,34 @@ h1 {
 }
 
 .workout {
+    border: 0 !important;
+    padding: 24px 0 !important;
+    margin-bottom: 16px;
+    cursor: pointer;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
     position: relative;
     display: grid;
     grid-template-columns: 56px minmax(0,1fr) auto;
     gap: 18px;
     align-items: center;
-    background: transparent !important;
-    border: 0 !important;
     border-top: 1px solid var(--hp-line) !important;
-    border-radius: 0 !important;
-    padding: 24px 0 !important;
     margin: 0 !important;
-    box-shadow: none !important;
 }
 
 .workout:last-child {
     border-bottom: 1px solid var(--hp-line) !important;
+}
+
+.workout:hover,
+.workout:focus-visible {
+    background: rgba(255,255,255,.02) !important;
+    border-color: rgba(255,255,255,.30) !important;
+    box-shadow: 0 0 20px rgba(67, 143, 255, 0.18);
 }
 
 .workout::before {
@@ -824,146 +550,140 @@ h1 {
     font-weight: 900;
     font-style: italic;
     letter-spacing: -1px;
-}
-
-.workout:hover,
-.workout:focus-visible {
-    background: rgba(255,255,255,.02) !important;
-    border-color: rgba(255,255,255,.30) !important;
+    grid-column: 1;
+    grid-row: 1 / 3;
 }
 
 .workout-name {
     font-size: clamp(22px, 4vw, 30px);
     font-weight: 900;
     line-height: 1;
+    color: #ffffff;
     letter-spacing: -1px;
     text-transform: uppercase;
-}
-
-.workout-meta {
-    color: var(--hp-muted) !important;
-    font-size: 11px;
-    letter-spacing: 1.2px;
-    margin-top: 10px;
-}
-
-.workout-button {
-    color: #fff !important;
-    font-size: 11px;
-    letter-spacing: 1.4px;
-    margin-top: 0 !important;
-    white-space: nowrap;
-    border-bottom: 3px solid var(--hp-blue);
-    padding-bottom: 5px;
-}
-
-.workout::before {
-    grid-column: 1;
-    grid-row: 1 / 3;
-}
-
-.workout-name {
     grid-column: 2;
     grid-row: 1;
 }
 
 .workout-meta {
+    margin-top: 0 !important;
+    color: var(--hp-muted) !important;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
     grid-column: 2;
     grid-row: 2;
-    margin-top: 0 !important;
 }
 
 .workout-button {
+    margin-top: 0 !important;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    color: #fff !important;
+    white-space: nowrap;
+    border-bottom: 3px solid var(--hp-blue);
+    padding-bottom: 5px;
     grid-column: 3;
     grid-row: 1 / 3;
     align-self: center;
 }
 
-.profile-box {
-    margin: 70px 0 32px !important;
-    padding: 34px 0 38px !important;
-    background: transparent !important;
-    border: 0 !important;
-    border-top: 2px solid #fff !important;
-    border-bottom: 1px solid var(--hp-line) !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-}
-
 .profile-box h2 {
     margin: 0 0 10px;
     font-size: clamp(36px, 7vw, 60px);
+    color: #ffffff;
     line-height: .9;
     letter-spacing: -2px;
     text-transform: uppercase;
 }
 
 .profile-box p {
-    max-width: 520px;
     color: rgba(255,255,255,.62) !important;
     font-size: 15px;
+    max-width: 520px;
     line-height: 1.5;
 }
 
 #player-profile {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex-direction: column;
     gap: 10px 18px !important;
     margin-top: 28px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 #player-profile label {
     margin-top: 12px !important;
     font-size: 10px !important;
+    font-weight: 700;
     letter-spacing: 1.4px;
     text-transform: uppercase;
     color: rgba(255,255,255,.78);
 }
 
 #player-profile select {
-    width: 100%;
-    min-height: 48px;
     padding: 12px 14px !important;
     background: #08111d !important;
+    color: #fff;
     border: 1px solid rgba(255,255,255,.28) !important;
+    font-size: 16px;
+    width: 100%;
+    min-height: 48px;
     border-radius: 3px;
 }
 
 #player-profile button {
-    grid-column: 1 / -1;
-    justify-self: start;
-    min-width: 250px;
     margin-top: 18px !important;
     padding: 16px 20px !important;
     background: var(--hp-blue) !important;
     color: #fff !important;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+    grid-column: 1 / -1;
+    justify-self: start;
+    min-width: 250px;
     border-radius: 3px;
     letter-spacing: 1px;
 }
 
 #recommendation {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    line-height: 1.6;
     grid-column: 1 / -1;
 }
 
 .coming-soon {
     margin-top: 36px;
+    padding-top: 24px;
     border-top: 0;
     color: rgba(255,255,255,.35);
+    font-size: 12px;
+    letter-spacing: 1px;
     text-transform: uppercase;
 }
 
-.lead-box {
-    margin-top: 24px;
-    background: transparent !important;
-    border: 1px solid var(--hp-line) !important;
-    box-shadow: none !important;
-}
-
 .home-button {
-    border: 0 !important;
-    border-bottom: 1px solid rgba(255,255,255,.35) !important;
-    border-radius: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     padding: 8px 0 !important;
+    background: transparent;
+    color: #ffffff;
+    border: 0 !important;
+    border-radius: 0 !important;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    min-height: 44px;
+    transition: background 0.2s, border-color 0.2s;
+    border-bottom: 1px solid rgba(255,255,255,.35) !important;
 }
 
 @media (max-width: 700px) {
@@ -973,21 +693,27 @@ h1 {
         opacity: 0.56;
     }
 
-
     .app {
         width: calc(100% - 36px);
         padding: 18px 0 48px;
     }
-    .hero { margin-top: 40px; margin-bottom: 42px; }
+
+    .hero {
+        margin-top: 40px;
+        margin-bottom: 42px;
+    }
+
     .hero h1, h1 {
         font-size: clamp(48px, 15vw, 58px);
         line-height: .88;
         letter-spacing: -3px;
     }
+
     .intro {
         font-size: 15px;
         line-height: 1.5;
     }
+
     .workout {
         grid-template-columns: 42px minmax(0,1fr);
         grid-template-rows: auto auto auto;
@@ -995,45 +721,58 @@ h1 {
         align-items: start;
         padding: 22px 0 !important;
     }
+
     .workout::before {
         grid-column: 1;
         grid-row: 1 / 4;
         font-size: 27px;
     }
+
     .workout-name {
         font-size: 23px;
         line-height: 1.02;
     }
+
     .workout-meta {
         grid-column: 2;
         grid-row: 2;
     }
+
     .workout-button {
         grid-column: 2;
         grid-row: 3;
         justify-self: start;
         margin-top: 4px !important;
     }
+
     .profile-box {
         margin-top: 54px !important;
     }
+
     .profile-box h2 {
         font-size: 46px;
     }
-    #player-profile { grid-template-columns: 1fr; }
+
+    #player-profile {
+        grid-template-columns: 1fr;
+    }
+
     #player-profile button,
-    #recommendation { grid-column: 1; }
-    #player-profile button { width: 100%; min-width: 0; }
+    #recommendation {
+        grid-column: 1;
+    }
+
+    #player-profile button {
+        width: 100%;
+        min-width: 0;
+    }
 }
 
-
-/* -----------------------------------
-   COACH VOICE PREVIEWS — EDITORIAL ROWS
------------------------------------ */
 .coach-previews {
     margin-top: 34px;
     width: min(100%, 720px);
 }
+
 .coach-previews-heading {
     font-size: 12px;
     font-weight: 900;
@@ -1041,11 +780,13 @@ h1 {
     color: #a6c1df;
     margin-bottom: 10px;
 }
+
 .coach-preview-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 32px;
 }
+
 .coach-preview-card,
 .coach-preview-card--female {
     display: flex;
@@ -1060,6 +801,7 @@ h1 {
     box-shadow: none;
     backdrop-filter: none;
 }
+
 .coach-preview-play {
     flex: 0 0 62px;
     width: 62px;
@@ -1076,37 +818,159 @@ h1 {
     box-shadow: none;
     transition: transform .18s ease, filter .18s ease;
 }
+
 .coach-preview-card--female .coach-preview-play {
     background: linear-gradient(140deg, #6c2dba, #a44be3 58%, #d597f4);
     box-shadow: none;
 }
-.coach-preview-play:hover { transform: scale(1.045); filter: brightness(1.1); }
-.coach-preview-play:active { transform: scale(.96); }
-.coach-preview-play:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
-.coach-preview-play[aria-pressed="true"],
-.coach-preview-card--female .coach-preview-play[aria-pressed="true"] { box-shadow: none; }
-.coach-preview-copy { min-width: 0; }
-.coach-preview-name { font-size: clamp(17px, 2vw, 20px); font-weight: 800; color: #fff; line-height: 1.2; }
-.coach-preview-type { margin-top: 5px; font-size: 10px; font-weight: 700; letter-spacing: 1.6px; color: #96abc1; }
-.coach-preview-status { margin-top: 9px; font-size: 10px; font-weight: 800; letter-spacing: .6px; color: #82c8ff; }
-.coach-preview-card--female .coach-preview-status { color: #d1a0f5; }
-.coach-preview-tagline { margin-top: 2px; font-size: 11px; font-weight: 500; letter-spacing: .1px; color: rgba(255,255,255,.48); }
-/* Give the waitlist greater priority than the workout finder. */
-.lead-box { margin-top: 68px !important; padding: 30px 0 38px !important; border: 0 !important; border-top: 2px solid #fff !important; border-bottom: 1px solid var(--hp-line) !important; }
-.lead-eyebrow { color: #8fc2ff; opacity: 1; }
-.lead-title { font-size: clamp(28px, 4.5vw, 44px); line-height: 1; text-transform: uppercase; letter-spacing: -1.6px; }
-.lead-submit { background: var(--hp-blue); color: #fff; min-height: 49px; }
-.lead-submit:hover { background: #2b90ff; }
-.profile-box { margin-top: 46px !important; }
-@media (max-width: 610px) {
-    .coach-preview-grid { grid-template-columns: 1fr; }
-    .coach-preview-card, .coach-preview-card--female { padding: 16px 0; gap: 15px; }
-    .coach-preview-card + .coach-preview-card { border-top-color: rgba(255,255,255,.13); }
-    .coach-preview-play { width: 56px; height: 56px; flex-basis: 56px; }
-    .lead-box { margin-top: 46px !important; }
-}
-@media (prefers-reduced-motion: reduce) { .coach-preview-play { transition: none; } }
 
+.coach-preview-play:hover {
+    transform: scale(1.045);
+    filter: brightness(1.1);
+}
+
+.coach-preview-play:active {
+    transform: scale(.96);
+}
+
+.coach-preview-play:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+}
+
+.coach-preview-play[aria-pressed="true"],
+.coach-preview-card--female .coach-preview-play[aria-pressed="true"] {
+    box-shadow: none;
+}
+
+.coach-preview-copy {
+    min-width: 0;
+}
+
+.coach-preview-name {
+    font-size: clamp(17px, 2vw, 20px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.coach-preview-type {
+    margin-top: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    color: #96abc1;
+}
+
+.coach-preview-status {
+    margin-top: 9px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .6px;
+    color: #82c8ff;
+}
+
+.coach-preview-card--female .coach-preview-status {
+    color: #d1a0f5;
+}
+
+.coach-preview-tagline {
+    margin-top: 2px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .1px;
+    color: rgba(255,255,255,.48);
+}
+
+.lead-box {
+    margin-top: 68px !important;
+    border: 0 !important;
+    padding: 30px 0 38px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-top: 2px solid #fff !important;
+    border-bottom: 1px solid var(--hp-line) !important;
+}
+
+.lead-eyebrow {
+    font-size: clamp(15px, 1.5vw, 19px);
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    opacity: 1;
+    color: #d4e5f8;
+    line-height: 1.5;
+    max-width: 850px;
+    margin-top: 12px;
+}
+
+.lead-title {
+    margin-top: 8px;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    color: #ffffff;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.lead-submit {
+    border: 0;
+    background: var(--hp-blue);
+    color: #fff;
+    padding: 14px 16px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    cursor: pointer;
+    min-height: 49px;
+}
+
+.lead-submit:hover {
+    background: #2b90ff;
+}
+
+.profile-box {
+    margin: 70px 0 32px !important;
+    padding: 34px 0 38px !important;
+    border: 0 !important;
+    background: transparent !important;
+    border-top: 2px solid #fff !important;
+    border-bottom: 1px solid var(--hp-line) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin-top: 46px !important;
+}
+
+@media (max-width: 610px) {
+    .coach-preview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .coach-preview-card, .coach-preview-card--female {
+        padding: 16px 0;
+        gap: 15px;
+    }
+
+    .coach-preview-card + .coach-preview-card {
+        border-top-color: rgba(255,255,255,.13);
+    }
+
+    .coach-preview-play {
+        width: 56px;
+        height: 56px;
+        flex-basis: 56px;
+    }
+
+    .lead-box {
+        margin-top: 46px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .coach-preview-play {
+        transition: none;
+    }
+}
 </style>
 	
 </head>
