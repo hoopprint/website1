@@ -1026,6 +1026,81 @@ h1 {
     #player-profile button { width: 100%; min-width: 0; }
 }
 
+
+/* -----------------------------------
+   COACH VOICE PREVIEWS
+----------------------------------- */
+.coach-previews {
+    margin-top: 30px;
+    max-width: 680px;
+}
+.coach-previews-heading {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #9eb8d5;
+    margin-bottom: 14px;
+}
+.coach-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+.coach-preview-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+    padding: 18px;
+    border: 1px solid rgba(126, 170, 220, .28);
+    background: rgba(5, 20, 39, .82);
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+}
+.coach-preview-card--female {
+    background: rgba(29, 15, 51, .75);
+    border-color: rgba(185, 120, 245, .3);
+}
+.coach-preview-play {
+    flex: 0 0 66px;
+    width: 66px;
+    height: 66px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+    background: linear-gradient(135deg, #075cff 4%, #2eafff 56%, #9aeaff 100%);
+    box-shadow: 0 5px 23px rgba(28, 135, 255, .3), inset 0 1px 2px rgba(255,255,255,.4);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.coach-preview-card--female .coach-preview-play {
+    background: linear-gradient(135deg, #6222c8 0%, #a94bed 58%, #e7abff 100%);
+    box-shadow: 0 5px 23px rgba(164, 76, 237, .27), inset 0 1px 2px rgba(255,255,255,.4);
+}
+.coach-preview-play:hover { transform: scale(1.06); }
+.coach-preview-play:active { transform: scale(.96); }
+.coach-preview-play:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+.coach-preview-play[aria-pressed="true"] { box-shadow: 0 0 0 5px rgba(91, 184, 255, .16), 0 6px 26px rgba(28,135,255,.46); }
+.coach-preview-card--female .coach-preview-play[aria-pressed="true"] { box-shadow: 0 0 0 5px rgba(192, 117, 255, .18), 0 6px 26px rgba(164,76,237,.45); }
+.coach-preview-copy { min-width: 0; }
+.coach-preview-name { font-size: 15px; font-weight: 900; color: #fff; }
+.coach-preview-type { margin-top: 5px; font-size: 10px; font-weight: 800; letter-spacing: 1.2px; color: #a3b6cf; }
+.coach-preview-status { margin-top: 9px; font-size: 11px; font-weight: 800; color: #80caff; }
+.coach-preview-card--female .coach-preview-status { color: #d9a6ff; }
+.coach-preview-tagline { margin-top: 14px; font-size: 10px; font-weight: 800; letter-spacing: 1.6px; color: rgba(255,255,255,.5); }
+@media (max-width: 610px) {
+    .coach-preview-grid { grid-template-columns: 1fr; }
+    .coach-preview-card { padding: 14px 16px; }
+    .coach-preview-play { width: 58px; height: 58px; flex-basis: 58px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .coach-preview-play { transition: none; }
+}
+
 </style>
 	
 </head>
@@ -1062,6 +1137,34 @@ h1 {
                 Guided basketball workouts built to help you train with purpose.
                 Press play, put the phone down, and get to work.
             </div>
+
+            <!-- MEET YOUR COACHES: voice introductions -->
+            <section class="coach-previews" aria-labelledby="coach-previews-title">
+                <div class="coach-previews-heading" id="coach-previews-title">/ MEET YOUR COACHES</div>
+                <div class="coach-preview-grid">
+                    <div class="coach-preview-card coach-preview-card--male">
+                        <button type="button" class="coach-preview-play" data-voice="brock"
+                                aria-label="Play Coach Brock's introduction" aria-pressed="false">▶</button>
+                        <div class="coach-preview-copy">
+                            <div class="coach-preview-name">Coach Brock</div>
+                            <div class="coach-preview-type">MALE VOICE</div>
+                            <div class="coach-preview-status" data-status="brock" aria-live="polite">LISTEN TO INTRO</div>
+                        </div>
+                    </div>
+                    <div class="coach-preview-card coach-preview-card--female">
+                        <button type="button" class="coach-preview-play" data-voice="cassidy"
+                                aria-label="Play Coach Cassidy's introduction" aria-pressed="false">▶</button>
+                        <div class="coach-preview-copy">
+                            <div class="coach-preview-name">Coach Cassidy</div>
+                            <div class="coach-preview-type">FEMALE VOICE</div>
+                            <div class="coach-preview-status" data-status="cassidy" aria-live="polite">LISTEN TO INTRO</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="coach-preview-tagline">Voices are AI-generated</div>
+                <audio id="voice-preview-audio" preload="none"></audio>
+            </section>
+
 
 		<div class="eyebrow" style="margin-top: 26px;">
 		    PREVIEW ACCESS · HOOP-PRINT BLUEPRINT VOL. 1
@@ -1945,6 +2048,67 @@ profileForm.addEventListener("submit", event => {
     );
 });
 	
+
+/* ----------------------------------------
+   INDEPENDENT COACH VOICE PREVIEWS
+---------------------------------------- */
+const voicePreviewAudio = document.getElementById("voice-preview-audio");
+const voicePreviewTracks = {
+    brock: "audio/HoopPrint_Intros_Male_Brock.mp3",
+    cassidy: "audio/Hoopprint_Intros_Female_Cassidy.mp3"
+};
+const voiceButtons = document.querySelectorAll(".coach-preview-play");
+let activeVoice = null;
+
+function updateVoicePreviewButtons() {
+    voiceButtons.forEach(button => {
+        const voice = button.dataset.voice;
+        const playing = voice === activeVoice && !voicePreviewAudio.paused;
+        const name = voice === "brock" ? "Brock" : "Cassidy";
+        button.textContent = playing ? "Ⅱ" : "▶";
+        button.setAttribute("aria-pressed", String(playing));
+        button.setAttribute("aria-label", `${playing ? "Pause" : "Play"} Coach ${name}'s introduction`);
+        document.querySelector(`[data-status="${voice}"]`).textContent =
+            playing ? "NOW PLAYING" : voice === activeVoice && voicePreviewAudio.currentTime > 0
+                ? "PAUSED · PLAY TO RESUME" : "LISTEN TO INTRO";
+    });
+}
+
+voiceButtons.forEach(button => {
+    button.addEventListener("click", async () => {
+        const voice = button.dataset.voice;
+        if (activeVoice === voice && !voicePreviewAudio.paused) {
+            voicePreviewAudio.pause();
+            return;
+        }
+        if (activeVoice !== voice) {
+            voicePreviewAudio.pause();
+            activeVoice = voice;
+            voicePreviewAudio.src = voicePreviewTracks[voice];
+            voicePreviewAudio.load();
+        }
+        // Avoid overlapping voice preview and workout audio.
+        audio.pause();
+        try {
+            await voicePreviewAudio.play();
+        } catch (error) {
+            console.error("Voice preview playback failed:", error);
+            document.querySelector(`[data-status="${voice}"]`).textContent = "AUDIO UNAVAILABLE";
+        }
+    });
+});
+voicePreviewAudio.addEventListener("play", updateVoicePreviewButtons);
+voicePreviewAudio.addEventListener("pause", updateVoicePreviewButtons);
+voicePreviewAudio.addEventListener("ended", () => {
+    activeVoice = null;
+    updateVoicePreviewButtons();
+});
+// Opening or playing a workout stops a voice introduction.
+document.querySelectorAll(".workout").forEach(card => {
+    card.addEventListener("click", () => voicePreviewAudio.pause(), {capture:true});
+});
+audio.addEventListener("play", () => voicePreviewAudio.pause());
+
 </script>
 
 </body>
